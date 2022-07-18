@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+    *::-webkit-scrollbar {
+        width: 0;
+    }
+    html {
+        scroll-padding-top: 3rem;
+        overflow-x: hidden;
+        width: 100vw;
+    }
+    body {
+        @apply font-primary bg-beige;
+        overflow-x: hidden;
+        width: 100vw;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-secondary;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply px-10;
+    }
+
+    .menu-link {
+        @apply font-secondary text-4xl md:text-7xl text-center lowercase font-bold text-darkGreen hover:text-green 
+                border-b-2 border-darkGreen hover:border-green mt-8 pb-4 transition-all duration-300;
+    }
+}
+
+@font-face {
+    font-family: 'SUNN-Line-Regular';
+    src: url('./assets/fonts/SUNN-Line-Regular.otf') format('otf'),
+        url('./assets/fonts/SUNN-Line-Regular.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUNN-Line-Bold';
+    src: url('./assets/fonts/SUNN-Line-Bold.otf') format('otf'),
+        url('./assets/fonts/SUNN-Line-Bold.woff') format('woff');
+    font-weight: 600;
+    font-display: swap;
+    font-style: normal;
+}
