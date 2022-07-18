@@ -16,7 +16,7 @@
         width: 100vw;
     }
     body {
-        @apply font-primary bg-beige;
+        @apply font-primary;
         overflow-x: hidden;
         width: 100vw;
     }
@@ -35,27 +35,112 @@
     .btn {
         @apply px-10;
     }
-
-    .menu-link {
-        @apply font-secondary text-4xl md:text-7xl text-center lowercase font-bold text-darkGreen hover:text-green 
-                border-b-2 border-darkGreen hover:border-green mt-8 pb-4 transition-all duration-300;
-    }
 }
 
 @font-face {
-    font-family: 'SUNN-Line-Regular';
-    src: url('./assets/fonts/SUNN-Line-Regular.otf') format('otf'),
-        url('./assets/fonts/SUNN-Line-Regular.woff') format('woff');
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-ExtraLight.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-ExtraLightItalic.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-Light.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-Light.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-LightItalic.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel.woff') format('woff');
     font-weight: 400;
     font-display: swap;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'SUNN-Line-Bold';
-    src: url('./assets/fonts/SUNN-Line-Bold.otf') format('otf'),
-        url('./assets/fonts/SUNN-Line-Bold.woff') format('woff');
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-Italic.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-Italic.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-Medium.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-Medium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-MediumItalic.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-Bold.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-Bold.woff') format('woff');
     font-weight: 600;
     font-display: swap;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-BoldItalic.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-BoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-ExtraBold.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-ExtraBold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueKabel';
+    src: url('./assets/fonts/NeueKabel/NeueKabel-ExtraBoldItalic.otf') format('otf'),
+        url('./assets/fonts/NeueKabel/NeueKabel-ExtraBoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+    font-style: italic;
 }

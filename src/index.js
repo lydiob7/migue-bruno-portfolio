@@ -16,7 +16,6 @@ const history = createBrowserHistory();
 ReactDOM.render(
     <AppContextProvider>
         <Router basename={parsePath()} history={history}>
-            <Navbar />
             <App />
         </Router>
     </AppContextProvider>,
