@@ -1,11 +1,10 @@
-import React, { useCallback, useContext, useEffect, createContext, useState } from 'react';
+import React, { useCallback, useContext, createContext, useState } from 'react';
 import contentfulService from 'services/ContentfulService';
 
 export const AppContext = createContext();
 
 export const AppContextProvider = (props) => {
     const [isAppNameVisible, setIsAppNameVisible] = useState(false);
-    const [isAppLogoVisible, setIsAppLogoVisible] = useState(false);
     const [isHeaderInverted, setIsHeaderInverted] = useState(false);
     const [isLoadingPosts, setIsLoadingPosts] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,13 +19,11 @@ export const AppContextProvider = (props) => {
 
     const value = {
         getPosts,
-        isAppLogoVisible,
         isAppNameVisible,
         isHeaderInverted,
         isLoadingPosts,
         isMenuOpen,
         posts,
-        setIsAppLogoVisible,
         setIsAppNameVisible,
         setIsHeaderInverted,
         setIsMenuOpen

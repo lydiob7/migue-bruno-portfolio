@@ -1,1 +1,2 @@
-export { default as LandingPage } from 'pages/landing-page/LandingPage';
+export { default as ErrorPage } from 'pages/common/ErrorPage';
+export { default as HomePage } from 'pages/home';

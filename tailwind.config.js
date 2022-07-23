@@ -2,17 +2,20 @@ module.exports = {
     mode: 'jit',
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
     theme: {
-        colors: {
-            beige: '#E0D9D1',
-            darkGreen: '#232616',
-            green: '#3E5041',
-            terra: '#591310',
-            yellow: '#C19A5B',
-            orange: '#BA6543'
+        extend: {
+            backgroundImage: {
+                'landing-page': 'url(assets/images/home-page.jpeg)'
+            },
+            colors: {
+                ciel: '#BED6EF',
+                darkGreen: '#14191A',
+                isabelline: '#F5F0EA',
+                white: '#FFFFFF'
+            }
         },
         fontFamily: {
-            primary: 'Poppins',
-            secondary: 'NeueKabel'
+            primary: 'NeueKabel',
+            secondary: 'Fira Sans'
         },
         keyframes: {},
         animation: {}
