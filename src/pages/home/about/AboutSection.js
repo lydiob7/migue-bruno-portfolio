@@ -51,7 +51,7 @@ const About = ({ setIsHeaderInverted, ...props }) => {
             ref={$scrollAreaRef}
             {...props}
             id="bio"
-            className="h-screen w-screen overflow-x-scroll snap-x snap-mandatory flex"
+            className="h-screen w-screen overflow-y-hidden overflow-x-scroll snap-x snap-mandatory flex"
         >
             <AboutOne ref={$aboutOneRef} handleGroupsScroll={handleGroupsScroll} />
             <AboutTwo ref={$aboutTwoRef} handleGroupsScroll={handleGroupsScroll} />

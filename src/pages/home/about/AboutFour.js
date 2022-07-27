@@ -5,13 +5,13 @@ import { HashLink } from 'react-router-hash-link';
 
 const AboutFour = forwardRef(({ handleGroupsScroll, ...props }, ref) => {
     return (
-        <div ref={ref} {...props} className="w-screen h-full shrink-0 bg-darkGreen text-isabelline snap-start pt-24">
-            <div className="w-full">
-                <img className="w-full" src={bio2} alt="Miguel Bruñó" />
+        <div ref={ref} {...props} className="w-screen h-full shrink-0 bg-darkGreen text-isabelline snap-start pt-16">
+            <div className="h-2/5 overflow-hidden">
+                <img className="object-cover" src={bio2} alt="Miguel Bruñó" />
             </div>
 
             <div className="w-5/6 mx-auto">
-                <p className="text-xl leading-6 mt-8 px-8 border-isabelline border-l-2">
+                <p className="leading-5 mt-8 px-8 border-isabelline border-l-2">
                     Estudié el grado de interpretación del piano en ESMUC, y complementé mi formación con diversos
                     cursos de improvisación, jazz, producción de música electrónica y pedagogía. Entre estos cursos
                     destaca la formación de profesorado de *Método IEM*, un método de enseñanza musical que pone la

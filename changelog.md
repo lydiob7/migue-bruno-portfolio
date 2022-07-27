@@ -3,3 +3,4 @@
 -   Feature: Clone project from Vaikuntha.
 -   Feature: Remove unused code and add fonts.
 -   Feature: Add banner and bio sections.
+-   Feature: Add music section.

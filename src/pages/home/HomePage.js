@@ -5,7 +5,7 @@ import { useContextInfo } from 'hooks/ContextProvider';
 import About from './about/AboutSection';
 import Banner from './Banner';
 import Contact from './Contact';
-import Music from './Music';
+import Music from './music/MusicSection';
 import Projects from './Projects';
 
 const HomePage = (props) => {
