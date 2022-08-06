@@ -32,7 +32,24 @@ const Navbar = () => {
                 ) : (
                     <div />
                 )}
-                <BurguerMenu onClick={handleToggleMenu} isHeaderInverted={isHeaderInverted} />
+                <BurguerMenu className="md:hidden" onClick={handleToggleMenu} isHeaderInverted={isHeaderInverted} />
+
+                <nav className="hidden md:block">
+                    <ul className="flex items-center text-xl text-darkGreen">
+                        <HashLink onClick={() => setIsMenuOpen(false)} to={parsePath('/#bio')}>
+                            <li className="mx-4">Bio</li>
+                        </HashLink>
+                        <HashLink onClick={() => setIsMenuOpen(false)} to={parsePath('/#musica')}>
+                            <li className="mx-4">Música</li>
+                        </HashLink>
+                        <HashLink onClick={() => setIsMenuOpen(false)} to={parsePath('/#proyectos')}>
+                            <li className="mx-4">Proyectos</li>
+                        </HashLink>
+                        <HashLink onClick={() => setIsMenuOpen(false)} to={parsePath('/#contacto')}>
+                            <li className="mx-4">Contacto</li>
+                        </HashLink>
+                    </ul>
+                </nav>
             </header>
 
             <Menu open={isMenuOpen} onClose={() => setIsMenuOpen(false)} />

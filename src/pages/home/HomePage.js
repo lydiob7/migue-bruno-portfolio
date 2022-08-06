@@ -1,5 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useContextInfo } from 'hooks/ContextProvider';
 
 import About from './about/AboutSection';
@@ -10,6 +12,7 @@ import Projects from './Projects';
 
 const HomePage = (props) => {
     const { isHeaderInverted, isMenuOpen, setIsAppNameVisible, setIsHeaderInverted } = useContextInfo();
+    gsap.registerPlugin(ScrollTrigger);
 
     const location = useLocation();
 
@@ -40,7 +43,7 @@ const HomePage = (props) => {
 
     return (
         <div className="snap-y snap-mandatory" {...props}>
-            <Banner ref={$banner} className="snap-start" />
+            <Banner gsap={gsap} ref={$banner} className="snap-start" />
             <About className="snap-start" setIsHeaderInverted={setIsHeaderInverted} />
             <Music className="snap-start" />
             <Projects className="snap-start" />

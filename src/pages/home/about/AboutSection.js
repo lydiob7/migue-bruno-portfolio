@@ -53,10 +53,10 @@ const About = ({ setIsHeaderInverted, ...props }) => {
             id="bio"
             className="h-screen w-screen overflow-y-hidden overflow-x-scroll snap-x snap-mandatory flex"
         >
-            <AboutOne ref={$aboutOneRef} handleGroupsScroll={handleGroupsScroll} />
-            <AboutTwo ref={$aboutTwoRef} handleGroupsScroll={handleGroupsScroll} />
-            <AboutThree ref={$aboutThreeRef} handleGroupsScroll={handleGroupsScroll} />
-            <AboutFour ref={$aboutFourRef} handleGroupsScroll={handleGroupsScroll} />
+            <AboutOne className="md:hidden" ref={$aboutOneRef} handleGroupsScroll={handleGroupsScroll} />
+            <AboutTwo className="md:hidden" ref={$aboutTwoRef} handleGroupsScroll={handleGroupsScroll} />
+            <AboutThree className="md:hidden" ref={$aboutThreeRef} handleGroupsScroll={handleGroupsScroll} />
+            <AboutFour className="md:hidden" ref={$aboutFourRef} handleGroupsScroll={handleGroupsScroll} />
         </div>
     );
 };

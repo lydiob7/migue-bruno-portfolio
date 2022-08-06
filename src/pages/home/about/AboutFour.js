@@ -1,11 +1,16 @@
 import React, { forwardRef } from 'react';
+import clsx from 'clsx';
 import bio2 from 'assets/images/bio2.jpeg';
 import { DoubleArrow } from 'components';
 import { HashLink } from 'react-router-hash-link';
 
-const AboutFour = forwardRef(({ handleGroupsScroll, ...props }, ref) => {
+const AboutFour = forwardRef(({ className, ...props }, ref) => {
     return (
-        <div ref={ref} {...props} className="w-screen h-full shrink-0 bg-darkGreen text-isabelline snap-start pt-16">
+        <div
+            ref={ref}
+            {...props}
+            className={clsx('w-screen h-full shrink-0 bg-darkGreen text-isabelline snap-start pt-16', className)}
+        >
             <div className="h-2/5 overflow-hidden">
                 <img className="object-cover" src={bio2} alt="Miguel Bruñó" />
             </div>

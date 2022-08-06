@@ -1,9 +1,10 @@
 import React, { forwardRef } from 'react';
+import clsx from 'clsx';
 import { DoubleArrow } from 'components';
 
-const AboutOne = forwardRef(({ handleGroupsScroll, ...props }, ref) => {
+const AboutOne = forwardRef(({ className, handleGroupsScroll, ...props }, ref) => {
     return (
-        <div ref={ref} {...props} className="w-screen h-full flex shrink-0 snap-start">
+        <div ref={ref} {...props} className={clsx('w-screen h-full flex shrink-0 snap-start', className)}>
             <div className="basis-5/6 grid place-items-center">
                 <h2 className="text-5xl">
                     <span className="inline-block my-2">Músico</span>

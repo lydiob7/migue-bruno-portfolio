@@ -11,6 +11,7 @@
         "@testing-library/user-event": "^13.5.0",
         "clsx": "^1.1.1",
         "contentful": "^9.1.18",
+        "gsap": "^3.10.4",
         "marked": "^4.0.12",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",

@@ -1,3 +1,7 @@
+### v0.2.0
+
+-   Feature: Add banner desktop version.
+
 ### v0.1.0
 
 -   Feature: Clone project from Vaikuntha.

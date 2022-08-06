@@ -1,10 +1,15 @@
 import React, { forwardRef } from 'react';
+import clsx from 'clsx';
 import bio1 from 'assets/images/bio1.jpeg';
 import { DoubleArrow } from 'components';
 
-const AboutThree = forwardRef(({ handleGroupsScroll, ...props }, ref) => {
+const AboutThree = forwardRef(({ className, handleGroupsScroll, ...props }, ref) => {
     return (
-        <div ref={ref} {...props} className="w-screen h-full shrink-0 bg-isabelline text-darkGreen snap-start pt-16">
+        <div
+            ref={ref}
+            {...props}
+            className={clsx('w-screen h-full shrink-0 bg-isabelline text-darkGreen snap-start pt-16', className)}
+        >
             <div className="w-full">
                 <img className="w-full" src={bio1} alt="Miguel Bruñó" />
             </div>

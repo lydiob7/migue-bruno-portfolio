@@ -4,10 +4,17 @@ import Audiovisual from './Audiovisual';
 import Arrangements from './Arrangements';
 import Piano from './Piano';
 import Improvisation from './Improvisation';
+import { useContextInfo } from 'hooks/ContextProvider';
 
 const MusicSection = (props) => {
+    const { getPosts } = useContextInfo();
+
     const [openTab, setOpenTab] = useState(null);
     const [isAnimationEnded, setIsAnimationEnded] = useState(false);
+
+    useEffect(() => {
+        getPosts();
+    }, [getPosts]);
 
     useEffect(() => {
         if (openTab) {
