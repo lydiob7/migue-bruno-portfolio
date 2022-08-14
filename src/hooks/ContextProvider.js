@@ -17,8 +17,13 @@ export const AppContextProvider = (props) => {
         setIsLoadingPosts(false);
     }, []);
 
+    const getPostsById = (id) => {
+        return posts?.filter((post) => post?.fields?.type === id)?.map((post) => ({ ...post?.fields }));
+    };
+
     const value = {
         getPosts,
+        getPostsById,
         isAppNameVisible,
         isHeaderInverted,
         isLoadingPosts,

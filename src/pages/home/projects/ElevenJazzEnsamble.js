@@ -1,9 +1,9 @@
 import React from 'react';
 import { ExpandableSection } from 'components';
 
-const ElevenJazzEnsamble = ({ openTab, ...props }) => {
+const ElevenJazzEnsamble = ({ id, openTab, ...props }) => {
     return (
-        <ExpandableSection {...props} id="eleven-jazz-ensamble" title="Eleven Jazz Ensamble" openTab={openTab}>
+        <ExpandableSection {...props} id={id} title="Eleven Jazz Ensamble" openTab={openTab}>
             <></>
         </ExpandableSection>
     );

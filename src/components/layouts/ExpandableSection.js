@@ -18,7 +18,9 @@ const ExpandableSection = ({ children, id, isFirstItem, openTab, openTitle, titl
             )}
         </h3>
 
-        {openTab === id && <div className="h-full w-full overflow-y-scroll">{children}</div>}
+        {openTab === id && (
+            <div className="h-full w-full px-4 sm:px-8 md:px-16 my-16 overflow-y-scroll">{children}</div>
+        )}
     </div>
 );
 

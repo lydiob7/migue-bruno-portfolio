@@ -6,6 +6,29 @@ import Piano from './Piano';
 import Improvisation from './Improvisation';
 import { useContextInfo } from 'hooks/ContextProvider';
 
+const tabs = {
+    audiovisual: 'audiovisual',
+    arrangements: 'arrangements',
+    improvisation: 'improvisation',
+    piano: 'piano'
+};
+
+const sections = [
+    {
+        id: tabs.audiovisual,
+        Component: Audiovisual
+    },
+    {
+        id: tabs.arrangements,
+        Component: Arrangements
+    },
+    {
+        id: tabs.piano,
+        Component: Piano
+    },
+    { id: tabs.improvisation, Component: Improvisation }
+];
+
 const MusicSection = (props) => {
     const { getPosts } = useContextInfo();
 
@@ -29,7 +52,7 @@ const MusicSection = (props) => {
             {...props}
             id="musica"
             className={clsx(
-                'relative h-screen bg-isabelline flex flex-col items-center justify-center',
+                'relative min-h-screen bg-isabelline text-darkGreen flex flex-col items-center justify-center',
                 openTab ? 'pt-20' : ''
             )}
         >
@@ -42,38 +65,18 @@ const MusicSection = (props) => {
             >
                 Música
             </h2>
-            <Audiovisual
-                onClick={() => {
-                    if (openTab !== 'audiovisual') setOpenTab('audiovisual');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-                showArrow
-            />
-            <Arrangements
-                onClick={() => {
-                    if (openTab !== 'arrangements') setOpenTab('arrangements');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-                showArrow
-            />
-            <Piano
-                onClick={() => {
-                    if (openTab !== 'piano') setOpenTab('piano');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-                showArrow
-            />
-            <Improvisation
-                onClick={() => {
-                    if (openTab !== 'improvisation') setOpenTab('improvisation');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-                showArrow
-            />
+            {sections.map(({ Component, id }) => (
+                <Component
+                    key={id}
+                    id={id}
+                    onClick={() => {
+                        if (openTab !== id) setOpenTab(id);
+                        else setOpenTab(null);
+                    }}
+                    openTab={openTab}
+                    showArrow
+                />
+            ))}
         </div>
     );
 };

@@ -9,6 +9,47 @@ import IEMOnline from './IEMOnline';
 import Malamiga from './Malamiga';
 import Voluta from './Voluta';
 
+const tabs = {
+    artsIArcs: 'arts-i-arcs',
+    cambraSerenata: 'cambra-serenata',
+    elevenJazzEnsamble: 'eleven-jazz-ensamble',
+    emociones: 'emociones',
+    iemOnline: 'iem-online',
+    malamiga: 'malamiga',
+    voluta: 'voluta'
+};
+
+const sections = [
+    {
+        id: tabs.iemOnline,
+        Component: IEMOnline
+    },
+    {
+        id: tabs.cambraSerenata,
+        Component: CambraSerenata
+    },
+    {
+        id: tabs.malamiga,
+        Component: Malamiga
+    },
+    {
+        id: tabs.elevenJazzEnsamble,
+        Component: ElevenJazzEnsamble
+    },
+    {
+        id: tabs.emociones,
+        Component: Emociones
+    },
+    {
+        id: tabs.artsIArcs,
+        Component: ArtsIArcs
+    },
+    {
+        id: tabs.voluta,
+        Component: Voluta
+    }
+];
+
 const Projects = (props) => {
     const [openTab, setOpenTab] = useState(null);
     const [isAnimationEnded, setIsAnimationEnded] = useState(false);
@@ -26,8 +67,8 @@ const Projects = (props) => {
             {...props}
             id="proyectos"
             className={clsx(
-                'relative bg-isabelline flex flex-col items-center justify-center',
-                openTab ? 'pt-20 h-[150vh]' : 'h-screen'
+                'relative min-h-screen bg-isabelline text-darkGreen flex flex-col items-center justify-center',
+                openTab ? 'pt-20' : ''
             )}
         >
             <h2
@@ -40,55 +81,17 @@ const Projects = (props) => {
                 Proyectos
             </h2>
 
-            <IEMOnline
-                onClick={() => {
-                    if (openTab !== 'iem-online') setOpenTab('iem-online');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-            />
-            <CambraSerenata
-                onClick={() => {
-                    if (openTab !== 'cambra-serenata') setOpenTab('cambra-serenata');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-            />
-            <Malamiga
-                onClick={() => {
-                    if (openTab !== 'malamiga') setOpenTab('malamiga');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-            />
-            <ElevenJazzEnsamble
-                onClick={() => {
-                    if (openTab !== 'eleven-jazz-ensamble') setOpenTab('eleven-jazz-ensamble');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-            />
-            <Emociones
-                onClick={() => {
-                    if (openTab !== 'emociones') setOpenTab('emociones');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-            />
-            <ArtsIArcs
-                onClick={() => {
-                    if (openTab !== 'arts-i-arcs') setOpenTab('arts-i-arcs');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-            />
-            <Voluta
-                onClick={() => {
-                    if (openTab !== 'voluta') setOpenTab('voluta');
-                    else setOpenTab(null);
-                }}
-                openTab={openTab}
-            />
+            {sections.map(({ Component, id }) => (
+                <Component
+                    key={id}
+                    id={id}
+                    onClick={() => {
+                        if (openTab !== id) setOpenTab(id);
+                        else setOpenTab(null);
+                    }}
+                    openTab={openTab}
+                />
+            ))}
         </div>
     );
 };

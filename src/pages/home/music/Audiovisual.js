@@ -1,24 +1,15 @@
 import React from 'react';
 import { useContextInfo } from 'hooks/ContextProvider';
-import { ExpandableSection } from 'components';
-import VideoCard from './VideoCard';
+import { ExpandableSection, VideosList } from 'components';
 
-const Audiovisual = ({ openTab, ...props }) => {
-    const { posts } = useContextInfo();
+const Audiovisual = ({ id, openTab, ...props }) => {
+    const { getPostsById } = useContextInfo();
 
     return (
-        <ExpandableSection {...props} id="audiovisual" title="Audiovisual" isFirstItem openTab={openTab}>
-            <>
-                {openTab === 'audiovisual' && (
-                    <div className="h-full w-full overflow-y-scroll">
-                        {posts
-                            ?.filter((post) => post?.fields?.type === 'audiovisual')
-                            ?.map((post) => (
-                                <VideoCard {...post?.fields} />
-                            ))}
-                    </div>
-                )}
-            </>
+        <ExpandableSection {...props} id={id} title="Audiovisual" isFirstItem openTab={openTab}>
+            <div className="h-full w-full overflow-y-scroll">
+                <VideosList videos={getPostsById(id)} />
+            </div>
         </ExpandableSection>
     );
 };

@@ -3,3 +3,5 @@ export { default as DoubleArrow } from 'components/common/DoubleArrow';
 export { default as ExpandableSection } from 'components/layouts/ExpandableSection';
 export { default as Menu } from 'components/common/Menu';
 export { default as Navbar } from 'components/common/Navbar';
+export { default as VideoCard } from 'components/common/VideoCard';
+export { default as VideosList } from 'components/common/VideosList';

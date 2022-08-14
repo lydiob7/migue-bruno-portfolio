@@ -1,9 +1,9 @@
 import React from 'react';
 import { ExpandableSection } from 'components';
 
-const Voluta = ({ openTab, ...props }) => {
+const Voluta = ({ id, openTab, ...props }) => {
     return (
-        <ExpandableSection {...props} id="voluta" title="Voluta Escola de Música" openTab={openTab}>
+        <ExpandableSection {...props} id={id} title="Voluta Escola de Música" openTab={openTab}>
             <></>
         </ExpandableSection>
     );

@@ -1,11 +1,11 @@
 import React from 'react';
 import { ExpandableSection } from 'components';
 
-const CambraSerenata = ({ openTab, ...props }) => {
+const CambraSerenata = ({ id, openTab, ...props }) => {
     return (
         <ExpandableSection
             {...props}
-            id="cambra-serenata"
+            id={id}
             openTitle="Cor de Cambra Serenata"
             title="Cambra Serenata"
             openTab={openTab}
