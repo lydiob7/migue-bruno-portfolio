@@ -57,7 +57,7 @@ const About = forwardRef(({ setIsHeaderInverted, ...props }, ref) => {
             <AboutOne className="md:hidden" ref={$aboutOneRef} handleGroupsScroll={handleGroupsScroll} />
             <AboutTwo className="md:hidden" ref={$aboutTwoRef} handleGroupsScroll={handleGroupsScroll} />
             <AboutThree className="md:hidden" ref={$aboutThreeRef} handleGroupsScroll={handleGroupsScroll} />
-            <AboutFour className="md:hidden" ref={$aboutFourRef} handleGroupsScroll={handleGroupsScroll} />
+            <AboutFour className="md:hidden" ref={$aboutFourRef} />
 
             <AboutDesktop className="hidden md:block" ref={ref} />
         </div>

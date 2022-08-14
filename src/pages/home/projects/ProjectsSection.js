@@ -67,31 +67,71 @@ const Projects = (props) => {
             {...props}
             id="proyectos"
             className={clsx(
-                'relative min-h-screen bg-isabelline text-darkGreen flex flex-col items-center justify-center',
-                openTab ? 'pt-20' : ''
+                'relative min-h-screen bg-isabelline text-darkGreen flex flex-col items-center justify-center md:px-16 md:pb-24',
+                openTab ? 'pt-20 md:pt-0' : ''
             )}
         >
             <h2
                 className={clsx(
                     'text-6xl font-black mb-16 transition-all',
-                    openTab ? 'invisible' : '',
-                    isAnimationEnded ? 'hidden' : ''
+                    openTab ? 'invisible md:visible' : '',
+                    isAnimationEnded ? 'hidden md:block' : ''
                 )}
             >
                 Proyectos
             </h2>
+            <div className="md:hidden flex flex-col w-full items-center justify-center">
+                {sections.map(({ Component, id }, index) => (
+                    <Component
+                        key={id}
+                        borderTop={index === 0}
+                        id={id}
+                        onClick={() => {
+                            if (openTab !== id) setOpenTab(id);
+                            else setOpenTab(null);
+                        }}
+                        openTab={openTab}
+                        splitScreen
+                    />
+                ))}
+            </div>
 
-            {sections.map(({ Component, id }) => (
-                <Component
-                    key={id}
-                    id={id}
-                    onClick={() => {
-                        if (openTab !== id) setOpenTab(id);
-                        else setOpenTab(null);
-                    }}
-                    openTab={openTab}
-                />
-            ))}
+            <div className="hidden md:flex md:items-center w-full">
+                <div className="basis-2/5 border-r-2 border-darkGreen pr-8">
+                    {sections
+                        .filter((section) => section?.id !== openTab)
+                        .map(({ Component, id }, index, array) => (
+                            <Component
+                                key={id}
+                                borderBottom={index !== array.length - 1}
+                                id={id}
+                                onClick={() => {
+                                    if (openTab !== id) setOpenTab(id);
+                                    else setOpenTab(null);
+                                }}
+                                openTab={openTab}
+                                splitScreen
+                            />
+                        ))}
+                </div>
+
+                <div className="basis-3/5">
+                    {sections
+                        ?.filter((section) => section?.id === openTab)
+                        ?.map(({ Component, id }) => (
+                            <Component
+                                key={id}
+                                id={id}
+                                onClick={() => {
+                                    if (openTab !== id) setOpenTab(id);
+                                    else setOpenTab(null);
+                                }}
+                                openTab={openTab}
+                                splitScreen
+                            />
+                        ))}
+                </div>
+            </div>
         </div>
     );
 };

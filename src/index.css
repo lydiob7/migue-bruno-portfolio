@@ -34,10 +34,13 @@
         @apply bg-center bg-cover bg-no-repeat;
     }
     .music-item {
-        @apply flex items-center font-extrabold px-8 border-b-2 cursor-pointer py-1;
+        @apply flex items-center font-extrabold px-8 cursor-pointer py-1;
     }
     .music-item__closed {
         @apply border-ciel text-ciel bg-darkGreen;
+    }
+    .music-item-split-screen__closed {
+        @apply border-ciel text-ciel bg-darkGreen md:border-darkGreen md:text-darkGreen md:bg-isabelline;
     }
     .music-item__open {
         @apply border-darkGreen;

@@ -2,13 +2,29 @@ import React from 'react';
 import clsx from 'clsx';
 import { DoubleArrow } from 'components';
 
-const ExpandableSection = ({ children, id, isFirstItem, openTab, openTitle, title, showArrow, ...props }) => (
+const ExpandableSection = ({
+    borderBottom = true,
+    borderTop,
+    children,
+    id,
+    openTab,
+    openTitle,
+    title,
+    showArrow,
+    splitScreen,
+    ...props
+}) => (
     <div {...props} className={clsx('w-full transition-all', openTab === id ? 'flex-1' : '')}>
         <h3
             className={clsx(
                 'music-item',
-                isFirstItem ? 'border-t-2' : '',
-                openTab && openTab !== id ? 'music-item__closed' : 'music-item__open',
+                borderTop ? 'border-t-2' : '',
+                borderBottom ? 'border-b-2' : '',
+                openTab && openTab !== id
+                    ? splitScreen
+                        ? 'music-item-split-screen__closed'
+                        : 'music-item__closed'
+                    : 'music-item__open',
                 openTab === id ? 'music-item-title__open' : 'music-item-title__closed'
             )}
         >

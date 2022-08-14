@@ -65,9 +65,10 @@ const MusicSection = (props) => {
             >
                 Música
             </h2>
-            {sections.map(({ Component, id }) => (
+            {sections.map(({ Component, id }, index) => (
                 <Component
                     key={id}
+                    borderTop={index === 0}
                     id={id}
                     onClick={() => {
                         if (openTab !== id) setOpenTab(id);

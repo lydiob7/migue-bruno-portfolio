@@ -6,7 +6,7 @@ const IEMOnline = ({ id, openTab, ...props }) => {
     const { getPostsById } = useContextInfo();
 
     return (
-        <ExpandableSection {...props} id={id} title="IEM Online" isFirstItem openTab={openTab}>
+        <ExpandableSection {...props} id={id} title="IEM Online" openTab={openTab}>
             <>
                 <p className="py-2">
                     El Instituto de Educación Musical (IEM) es una asociación de profesores creada y dirigida por Emilio
@@ -20,7 +20,12 @@ const IEMOnline = ({ id, openTab, ...props }) => {
                     (Alboraya). Compongo, hago arreglos, transcripciones, *backing tracks*… en esta web podréis ver y
                     escuchar algunos de mis trabajos.
                 </p>
-                <a className="flex items-center my-8" href="google.com" target="_blank" rel="noreferrer">
+                <a
+                    className="flex items-center my-8"
+                    href="https://www.metodoiem.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     Visita la web{' '}
                     <svg
                         className="ml-2"

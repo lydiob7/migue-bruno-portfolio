@@ -5,6 +5,7 @@
 -   Feature: Add video and video list components.
 -   Update: Update contact section.
 -   Feature: Add about section for desktop.
+-   Feature: Add split screen on medium screen for expandable section.
 
 ### v0.1.0
 
