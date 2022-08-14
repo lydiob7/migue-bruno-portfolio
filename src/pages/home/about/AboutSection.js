@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import AboutDesktop from './AboutDesktop';
 import AboutOne from './AboutOne';
 import AboutTwo from './AboutTwo';
 import AboutThree from './AboutThree.js';
 import AboutFour from './AboutFour';
 
-const About = ({ setIsHeaderInverted, ...props }) => {
+const About = forwardRef(({ setIsHeaderInverted, ...props }, ref) => {
     const $scrollAreaRef = useRef(null);
     const $aboutOneRef = useRef(null);
     const $aboutTwoRef = useRef(null);
@@ -51,14 +52,16 @@ const About = ({ setIsHeaderInverted, ...props }) => {
             ref={$scrollAreaRef}
             {...props}
             id="bio"
-            className="h-screen w-screen overflow-y-hidden overflow-x-scroll snap-x snap-mandatory flex"
+            className="h-screen md:h-auto w-screen overflow-y-hidden overflow-x-scroll snap-x snap-mandatory flex"
         >
             <AboutOne className="md:hidden" ref={$aboutOneRef} handleGroupsScroll={handleGroupsScroll} />
             <AboutTwo className="md:hidden" ref={$aboutTwoRef} handleGroupsScroll={handleGroupsScroll} />
             <AboutThree className="md:hidden" ref={$aboutThreeRef} handleGroupsScroll={handleGroupsScroll} />
             <AboutFour className="md:hidden" ref={$aboutFourRef} handleGroupsScroll={handleGroupsScroll} />
+
+            <AboutDesktop className="hidden md:block" ref={ref} />
         </div>
     );
-};
+});
 
 export default About;

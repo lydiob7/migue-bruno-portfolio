@@ -1,6 +1,6 @@
 import React from 'react';
-import { HashLink } from 'react-router-hash-link';
 import clsx from 'clsx';
+import { HashLink } from 'react-router-hash-link';
 import { useContextInfo } from 'hooks/ContextProvider';
 import { BurguerMenu, Menu } from 'components';
 import { parsePath } from 'utils/helpers';
@@ -35,7 +35,9 @@ const Navbar = () => {
                 <BurguerMenu className="md:hidden" onClick={handleToggleMenu} isHeaderInverted={isHeaderInverted} />
 
                 <nav className="hidden md:block">
-                    <ul className="flex items-center text-xl text-darkGreen">
+                    <ul
+                        className={clsx('flex items-center text-xl', isHeaderInverted ? 'text-ciel' : 'text-darkGreen')}
+                    >
                         <HashLink onClick={() => setIsMenuOpen(false)} to={parsePath('/#bio')}>
                             <li className="mx-4">Bio</li>
                         </HashLink>

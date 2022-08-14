@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-const Contact = (props) => (
+const Contact = forwardRef((props, ref) => (
     <div
         {...props}
+        ref={ref}
         id="contacto"
         className="h-screen bg-darkGreen text-isabelline grid content-center
         px-6 sm:px-12 md:px-24 text-xl"
@@ -26,6 +27,6 @@ const Contact = (props) => (
             </a>
         </div>
     </div>
-);
+));
 
 export default Contact;

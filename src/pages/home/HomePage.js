@@ -16,6 +16,8 @@ const HomePage = (props) => {
 
     const location = useLocation();
 
+    const $aboutDesktop = useRef(null);
+    const $contact = useRef(null);
     const $banner = useRef(null);
 
     useLayoutEffect(() => {
@@ -26,10 +28,19 @@ const HomePage = (props) => {
 
     useEffect(() => {
         document?.addEventListener('scroll', () => {
+            const aboutRect = $aboutDesktop?.current?.getBoundingClientRect();
             const bannerRect = $banner?.current?.getBoundingClientRect();
+            const contactRect = $contact?.current?.getBoundingClientRect();
+            const screenWidth = window.innerWidth;
             if (location?.pathname !== '/') return;
             if (bannerRect?.top <= 50 && bannerRect?.top - 50 > -bannerRect?.height) {
                 setIsAppNameVisible(false);
+                return screenWidth < 768 ? setIsHeaderInverted(true) : setIsHeaderInverted(false);
+            } else if (
+                (aboutRect?.top <= 50 && aboutRect?.top - 50 > -aboutRect?.height) ||
+                (contactRect?.top <= 50 && contactRect?.top - 50 > -contactRect?.height)
+            ) {
+                setIsAppNameVisible(true);
                 return setIsHeaderInverted(true);
             } else {
                 setIsAppNameVisible(true);
@@ -44,10 +55,10 @@ const HomePage = (props) => {
     return (
         <div className="snap-y snap-mandatory" {...props}>
             <Banner gsap={gsap} ref={$banner} className="snap-start" />
-            <About className="snap-start" setIsHeaderInverted={setIsHeaderInverted} />
+            <About ref={$aboutDesktop} className="snap-start" setIsHeaderInverted={setIsHeaderInverted} />
             <Music className="snap-start" />
             <Projects className="snap-start" />
-            <Contact className="snap-start" />
+            <Contact ref={$contact} className="snap-start" />
         </div>
     );
 };

@@ -4,6 +4,7 @@
 -   Feature: Add expandable section component.
 -   Feature: Add video and video list components.
 -   Update: Update contact section.
+-   Feature: Add about section for desktop.
 
 ### v0.1.0
 
