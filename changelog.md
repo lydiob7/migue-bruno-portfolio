@@ -3,6 +3,7 @@
 -   Feature: Add banner desktop version.
 -   Feature: Add expandable section component.
 -   Feature: Add video and video list components.
+-   Update: Update contact section.
 
 ### v0.1.0
 
