@@ -8,7 +8,7 @@ import About from './about/AboutSection';
 import Banner from './Banner';
 import Contact from './Contact';
 import Music from './music/MusicSection';
-import Projects from './Projects';
+import Projects from './projects/ProjectsSection';
 
 const HomePage = (props) => {
     const { isHeaderInverted, isMenuOpen, setIsAppNameVisible, setIsHeaderInverted } = useContextInfo();

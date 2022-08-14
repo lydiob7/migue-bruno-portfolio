@@ -1,24 +1,25 @@
 import React from 'react';
-import clsx from 'clsx';
-import { DoubleArrow } from 'components';
+import { useContextInfo } from 'hooks/ContextProvider';
+import { ExpandableSection } from 'components';
+import VideoCard from './VideoCard';
 
 const Piano = ({ openTab, ...props }) => {
-    return (
-        <div {...props} className={clsx('w-full transition-all', openTab === 'piano' ? 'flex-1' : '')}>
-            <h3
-                className={clsx(
-                    'flex items-center font-extrabold px-8 border-b-2 cursor-pointer',
-                    openTab && openTab !== 'piano' ? 'border-ciel text-ciel bg-darkGreen' : 'border-darkGreen',
-                    openTab === 'piano'
-                        ? 'text-4xl justify-center text-center border-none pt-2'
-                        : 'text-3xl justify-between'
-                )}
-            >
-                Piano {openTab !== 'piano' && <DoubleArrow fill="fill-darkGreen" direction="right" />}
-            </h3>
+    const { posts } = useContextInfo();
 
-            {openTab === 'piano' && <div className="h-full w-full overflow-y-scroll"></div>}
-        </div>
+    return (
+        <ExpandableSection {...props} id="piano" title="Piano" openTab={openTab}>
+            <>
+                {openTab === 'piano' && (
+                    <div className="h-full w-full overflow-y-scroll">
+                        {posts
+                            ?.filter((post) => post?.fields?.type === 'piano')
+                            ?.map((post) => (
+                                <VideoCard {...post?.fields} />
+                            ))}
+                    </div>
+                )}
+            </>
+        </ExpandableSection>
     );
 };
 

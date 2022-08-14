@@ -48,6 +48,7 @@ const MusicSection = (props) => {
                     else setOpenTab(null);
                 }}
                 openTab={openTab}
+                showArrow
             />
             <Arrangements
                 onClick={() => {
@@ -55,6 +56,7 @@ const MusicSection = (props) => {
                     else setOpenTab(null);
                 }}
                 openTab={openTab}
+                showArrow
             />
             <Piano
                 onClick={() => {
@@ -62,6 +64,7 @@ const MusicSection = (props) => {
                     else setOpenTab(null);
                 }}
                 openTab={openTab}
+                showArrow
             />
             <Improvisation
                 onClick={() => {
@@ -69,6 +72,7 @@ const MusicSection = (props) => {
                     else setOpenTab(null);
                 }}
                 openTab={openTab}
+                showArrow
             />
         </div>
     );

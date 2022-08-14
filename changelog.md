@@ -1,6 +1,7 @@
 ### v0.2.0
 
 -   Feature: Add banner desktop version.
+-   Feature: Add expandable section component.
 
 ### v0.1.0
 

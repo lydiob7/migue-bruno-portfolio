@@ -33,6 +33,24 @@
     .bg-cover-center {
         @apply bg-center bg-cover bg-no-repeat;
     }
+    .music-item {
+        @apply flex items-center font-extrabold px-8 border-b-2 cursor-pointer py-1;
+    }
+    .music-item__closed {
+        @apply border-ciel text-ciel bg-darkGreen;
+    }
+    .music-item__open {
+        @apply border-darkGreen;
+    }
+    .music-item-title__closed {
+        @apply text-3xl justify-between;
+    }
+    .music-item-title__open {
+        @apply text-4xl justify-center text-center border-none pt-2;
+    }
+    .project-item {
+        @apply music-item music-item__open music-item-title__closed;
+    }
 }
 
 @font-face {
