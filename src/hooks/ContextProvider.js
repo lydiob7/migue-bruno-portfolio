@@ -6,6 +6,7 @@ export const AppContext = createContext();
 export const AppContextProvider = (props) => {
     const [audios, setAudios] = useState([]);
     const [isAppNameVisible, setIsAppNameVisible] = useState(false);
+    const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
     const [isHeaderInverted, setIsHeaderInverted] = useState(false);
     const [isLoadingAudios, setIsLoadingAudios] = useState(false);
     const [isLoadingPosts, setIsLoadingPosts] = useState(false);
@@ -41,12 +42,14 @@ export const AppContextProvider = (props) => {
         getVideos,
         getVideosById,
         isAppNameVisible,
+        isDesktopMenuOpen,
         isHeaderInverted,
         isLoadingAudios,
         isLoadingPosts,
         isMenuOpen,
         posts,
         setIsAppNameVisible,
+        setIsDesktopMenuOpen,
         setIsHeaderInverted,
         setIsMenuOpen
     };

@@ -37,16 +37,16 @@
         @apply flex items-center font-extrabold px-8 cursor-pointer py-1;
     }
     .music-item__closed {
-        @apply border-ciel text-ciel bg-darkGreen;
+        @apply border-isabelline text-isabelline bg-darkGreen;
     }
     .music-item-split-screen__closed {
-        @apply border-ciel text-ciel bg-darkGreen md:border-darkGreen md:text-darkGreen md:bg-isabelline;
+        @apply border-isabelline text-isabelline bg-darkGreen lg:border-darkGreen lg:text-darkGreen lg:bg-isabelline;
     }
     .music-item__open {
         @apply border-darkGreen;
     }
     .music-item-title__closed {
-        @apply text-3xl justify-between;
+        @apply text-3xl lg:text-4xl lg:py-4 justify-between;
     }
     .music-item-title__open {
         @apply text-4xl justify-center text-center border-none pt-2;

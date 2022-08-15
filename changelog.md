@@ -7,6 +7,7 @@
 -   Feature: Add about section for desktop.
 -   Feature: Add split screen on medium screen for expandable section.
 -   Feature: Add Audio card.
+-   Feature: Rotate sections on desktop.
 
 ### v0.1.0
 

@@ -51,6 +51,8 @@ const sections = [
     }
 ];
 
-const Projects = (props) => <SectionsList {...props} sections={sections} splitScreen title="Proyectos" />;
+const Projects = (props) => (
+    <SectionsList {...props} id="proyectos" sections={sections} splitScreen title="Proyectos" />
+);
 
 export default Projects;

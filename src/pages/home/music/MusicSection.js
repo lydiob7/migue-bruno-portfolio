@@ -30,6 +30,6 @@ const sections = [
     { id: tabs.improvisation, Component: Improvisation }
 ];
 
-const MusicSection = (props) => <SectionsList {...props} sections={sections} title="Música" />;
+const MusicSection = (props) => <SectionsList {...props} id="musica" sections={sections} title="Música" />;
 
 export default MusicSection;
