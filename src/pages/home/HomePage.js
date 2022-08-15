@@ -11,7 +11,8 @@ import Music from './music/MusicSection';
 import Projects from './projects/ProjectsSection';
 
 const HomePage = (props) => {
-    const { isHeaderInverted, isMenuOpen, setIsAppNameVisible, setIsHeaderInverted } = useContextInfo();
+    const { getAudios, getVideos, isHeaderInverted, isMenuOpen, setIsAppNameVisible, setIsHeaderInverted } =
+        useContextInfo();
     gsap.registerPlugin(ScrollTrigger);
 
     const location = useLocation();
@@ -25,6 +26,11 @@ const HomePage = (props) => {
         if (!isMenuOpen) setIsAppNameVisible(false);
         // eslint-disable-next-line
     }, [isMenuOpen]);
+
+    useEffect(() => {
+        getAudios();
+        getVideos();
+    }, [getAudios, getVideos]);
 
     useEffect(() => {
         document?.addEventListener('scroll', () => {

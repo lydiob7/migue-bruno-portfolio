@@ -1,10 +1,7 @@
 import React from 'react';
-import { useContextInfo } from 'hooks/ContextProvider';
-import { ExpandableSection, VideosList } from 'components';
+import { ExpandableSection } from 'components';
 
 const IEMOnline = ({ id, openTab, ...props }) => {
-    const { getPostsById } = useContextInfo();
-
     return (
         <ExpandableSection {...props} id={id} title="IEM Online" openTab={openTab}>
             <>
@@ -21,7 +18,7 @@ const IEMOnline = ({ id, openTab, ...props }) => {
                     escuchar algunos de mis trabajos.
                 </p>
                 <a
-                    className="flex items-center my-8"
+                    className="flex items-center mt-8"
                     href="https://www.metodoiem.com/"
                     target="_blank"
                     rel="noreferrer"
@@ -41,10 +38,6 @@ const IEMOnline = ({ id, openTab, ...props }) => {
                         />
                     </svg>
                 </a>
-
-                <div>
-                    <VideosList videos={getPostsById(id)} />
-                </div>
             </>
         </ExpandableSection>
     );

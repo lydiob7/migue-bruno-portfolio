@@ -1,10 +1,7 @@
 import React from 'react';
-import { useContextInfo } from 'hooks/ContextProvider';
-import { ExpandableSection, VideosList } from 'components';
+import { ExpandableSection } from 'components';
 
 const CambraSerenata = ({ id, openTab, ...props }) => {
-    const { getPostsById } = useContextInfo();
-
     return (
         <ExpandableSection
             {...props}
@@ -51,10 +48,6 @@ const CambraSerenata = ({ id, openTab, ...props }) => {
                             />
                         </svg>
                     </a>
-                </div>
-
-                <div>
-                    <VideosList videos={getPostsById(id)} />
                 </div>
             </>
         </ExpandableSection>

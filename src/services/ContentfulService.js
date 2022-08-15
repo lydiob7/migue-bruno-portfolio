@@ -1,9 +1,10 @@
 import client from './contentfulConfig';
 
 class ContentfulService {
-    async getAllPosts() {
+    async getAllPosts(type = 'audiovisual') {
         try {
             const response = await client.getEntries({
+                content_type: type,
                 select: 'fields',
                 order: 'sys.createdAt'
             });

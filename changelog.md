@@ -6,6 +6,7 @@
 -   Update: Update contact section.
 -   Feature: Add about section for desktop.
 -   Feature: Add split screen on medium screen for expandable section.
+-   Feature: Add Audio card.
 
 ### v0.1.0
 
