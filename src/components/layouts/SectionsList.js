@@ -59,7 +59,7 @@ const SectionsList = forwardRef(({ id, sections, splitScreen, title, ...props },
                 </h2>
                 <div
                     className={clsx(
-                        'flex flex-col w-full items-center justify-center',
+                        'flex flex-col w-full items-center justify-center transition-all',
                         openTab ? 'flex-1' : '',
                         splitScreen ? 'lg:hidden' : ''
                     )}

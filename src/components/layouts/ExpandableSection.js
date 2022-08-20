@@ -22,7 +22,7 @@ const ExpandableSection = ({
         <div
             {...props}
             className={clsx(
-                'w-full transition-flex',
+                'w-full transition-all',
                 openTab === id ? (!splitScreen ? 'flex-1 flex items-center justify-center' : 'flex-1') : ''
             )}
         >
@@ -52,21 +52,28 @@ const ExpandableSection = ({
                     )}
                 </h3>
 
-                {openTab === id && (
-                    <div
-                        className={clsx(
-                            'h-full w-full px-4 sm:px-8 md:px-16 my-16 overflow-y-scroll',
-                            openTab === id && !splitScreen ? 'lg:px-0 lg:my-0' : ''
-                        )}
-                    >
-                        {children}
+                <div
+                    style={{ transition: 'height .4s ease-in-out' }}
+                    className={clsx(
+                        openTab === id
+                            ? 'h-full w-full px-4 sm:px-8 md:px-16 my-16 overflow-y-scroll'
+                            : splitScreen
+                            ? 'lg:w-0 h-0 overflow-hidden'
+                            : 'h-0 overflow-hidden',
+                        !splitScreen ? 'lg:px-0 lg:my-0' : ''
+                    )}
+                >
+                    {children}
 
-                        <div className="mt-16">
-                            <VideosList splitScreen={splitScreen} videos={getVideosById(contentfulId || id)} />
-                            <AudiosList splitScreen={splitScreen} audios={getAudiosById(contentfulId || id)} />
-                        </div>
+                    <div className="mt-16">
+                        {openTab === id && (
+                            <>
+                                <VideosList splitScreen={splitScreen} videos={getVideosById(contentfulId || id)} />
+                                <AudiosList splitScreen={splitScreen} audios={getAudiosById(contentfulId || id)} />
+                            </>
+                        )}
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );

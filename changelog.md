@@ -2,6 +2,7 @@
 
 -   Bugfix: Fix section width on open tab for mobile version.
 -   Update: Keep burguer menu blue when section is open on desktop.
+-   Update: Add transition for height on expandable section.
 
 ### v0.2.0
 
