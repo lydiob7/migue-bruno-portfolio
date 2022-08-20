@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { SectionsList } from 'components';
 
@@ -51,8 +51,8 @@ const sections = [
     }
 ];
 
-const Projects = (props) => (
-    <SectionsList {...props} id="proyectos" sections={sections} splitScreen title="Proyectos" />
-);
+const Projects = forwardRef((props, ref) => (
+    <SectionsList {...props} ref={ref} id="proyectos" sections={sections} splitScreen title="Proyectos" />
+));
 
 export default Projects;

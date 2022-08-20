@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { useContextInfo } from 'hooks/ContextProvider';
 
-const SectionsList = ({ id, sections, splitScreen, title, ...props }) => {
-    const { setIsHeaderInverted } = useContextInfo();
+const SectionsList = forwardRef(({ id, sections, splitScreen, title, ...props }, ref) => {
+    const { setIsBurguerMenuInverted, setIsTabOpen } = useContextInfo();
 
     const [openTab, setOpenTab] = useState(null);
     const [isAnimationEnded, setIsAnimationEnded] = useState(false);
@@ -16,13 +16,21 @@ const SectionsList = ({ id, sections, splitScreen, title, ...props }) => {
         } else setIsAnimationEnded(false);
     }, [openTab]);
 
-    useEffect(() => {
-        if (!openTab) setIsHeaderInverted(false);
-    }, [openTab, setIsHeaderInverted]);
+    const handleToggleTab = (id, isNotLastTab) => {
+        setOpenTab(id);
+        if (id && isNotLastTab) {
+            setIsBurguerMenuInverted(true);
+            setIsTabOpen(true);
+        } else {
+            setIsBurguerMenuInverted(false);
+            setIsTabOpen(false);
+        }
+    };
 
     return (
         <div
             {...props}
+            ref={ref}
             id={id}
             className={clsx(
                 'relative min-h-screen bg-isabelline text-darkGreen',
@@ -61,12 +69,7 @@ const SectionsList = ({ id, sections, splitScreen, title, ...props }) => {
                             key={id}
                             borderTop={index === 0}
                             id={id}
-                            onClick={() => {
-                                if (openTab !== id) {
-                                    if (index !== array.length - 1) setIsHeaderInverted(true);
-                                    setOpenTab(id);
-                                } else setOpenTab(null);
-                            }}
+                            onClick={() => handleToggleTab(openTab !== id ? id : null, index !== array.length - 1)}
                             openTab={openTab}
                         />
                     ))}
@@ -88,10 +91,7 @@ const SectionsList = ({ id, sections, splitScreen, title, ...props }) => {
                                     borderTop={!openTab && index === 0}
                                     borderBottom={!openTab || index !== array.length - 1}
                                     id={id}
-                                    onClick={() => {
-                                        if (openTab !== id) setOpenTab(id);
-                                        else setOpenTab(null);
-                                    }}
+                                    onClick={() => handleToggleTab(openTab !== id ? id : null)}
                                     openTab={openTab}
                                     splitScreen={splitScreen}
                                 />
@@ -105,10 +105,7 @@ const SectionsList = ({ id, sections, splitScreen, title, ...props }) => {
                                 <Component
                                     key={id}
                                     id={id}
-                                    onClick={() => {
-                                        if (openTab !== id) setOpenTab(id);
-                                        else setOpenTab(null);
-                                    }}
+                                    onClick={() => handleToggleTab(openTab !== id ? id : null)}
                                     openTab={openTab}
                                     splitScreen={splitScreen}
                                 />
@@ -118,6 +115,6 @@ const SectionsList = ({ id, sections, splitScreen, title, ...props }) => {
             </div>
         </div>
     );
-};
+});
 
 export default SectionsList;

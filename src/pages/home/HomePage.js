@@ -11,8 +11,18 @@ import Music from './music/MusicSection';
 import Projects from './projects/ProjectsSection';
 
 const HomePage = (props) => {
-    const { getAudios, getVideos, isHeaderInverted, isMenuOpen, setIsAppNameVisible, setIsHeaderInverted } =
-        useContextInfo();
+    const {
+        getAudios,
+        getVideos,
+        isHeaderInverted,
+        isMenuOpen,
+        isTabOpen,
+        setIsAppNameVisible,
+        setIsBurguerMenuInverted,
+        setIsDesktopMenuOpen,
+        setIsHeaderInverted,
+        setIsTitleInverted
+    } = useContextInfo();
     gsap.registerPlugin(ScrollTrigger);
 
     const location = useLocation();
@@ -20,6 +30,7 @@ const HomePage = (props) => {
     const $aboutDesktop = useRef(null);
     const $contact = useRef(null);
     const $banner = useRef(null);
+    const $projects = useRef(null);
 
     useLayoutEffect(() => {
         if (!isHeaderInverted) setIsHeaderInverted(true);
@@ -37,6 +48,7 @@ const HomePage = (props) => {
             const aboutRect = $aboutDesktop?.current?.getBoundingClientRect();
             const bannerRect = $banner?.current?.getBoundingClientRect();
             const contactRect = $contact?.current?.getBoundingClientRect();
+            const projectsRect = $projects?.current?.getBoundingClientRect();
             const screenWidth = window.innerWidth;
             if (location?.pathname !== '/') return;
             if (bannerRect?.top <= 50 && bannerRect?.top - 50 > -bannerRect?.height) {
@@ -48,22 +60,27 @@ const HomePage = (props) => {
             ) {
                 setIsAppNameVisible(true);
                 return setIsHeaderInverted(true);
+            } else if (projectsRect?.top <= 50 && projectsRect?.top - 50 > -projectsRect?.height) {
+                setIsAppNameVisible(true);
+                setIsBurguerMenuInverted(false);
+                setIsTitleInverted(false);
             } else {
                 setIsAppNameVisible(true);
-                return setIsHeaderInverted(false);
+                setIsTitleInverted(false);
+                return isTabOpen ? setIsBurguerMenuInverted(true) : setIsBurguerMenuInverted(false);
             }
         });
 
         return () => document.removeEventListener('scroll', () => {});
         // eslint-disable-next-line
-    }, [location?.pathname]);
+    }, [isTabOpen, location?.pathname]);
 
     return (
-        <div className="snap-y snap-mandatory" {...props}>
+        <div onClick={() => setIsDesktopMenuOpen(false)} className="snap-y snap-mandatory" {...props}>
             <Banner gsap={gsap} ref={$banner} className="snap-start" />
             <About ref={$aboutDesktop} className="snap-start" setIsHeaderInverted={setIsHeaderInverted} />
             <Music className="snap-start" />
-            <Projects className="snap-start" />
+            <Projects ref={$projects} className="snap-start" />
             <Contact ref={$contact} className="snap-start" />
         </div>
     );

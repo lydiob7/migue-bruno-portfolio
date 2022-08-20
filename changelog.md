@@ -1,3 +1,7 @@
+### v0.3.0
+
+-   Bugfix: Fix section width on open tab for mobile version.
+
 ### v0.2.0
 
 -   Feature: Add banner desktop version.

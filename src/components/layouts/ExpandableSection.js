@@ -29,7 +29,7 @@ const ExpandableSection = ({
             <div
                 className={clsx(
                     openTab === id && !splitScreen
-                        ? 'flex-1 lg:rotate-90 origin-center lg:h-screen lg:pt-20 lg:w-full lg:shrink-0'
+                        ? 'flex-1 w-full lg:rotate-90 origin-center lg:h-screen lg:pt-20 lg:shrink-0'
                         : ''
                 )}
             >

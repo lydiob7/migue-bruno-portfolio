@@ -8,9 +8,10 @@ import { parsePath } from 'utils/helpers';
 const Navbar = () => {
     const {
         isAppNameVisible,
+        isBurguerMenuInverted,
         isDesktopMenuOpen,
-        isHeaderInverted,
         isMenuOpen,
+        isTitleInverted,
         setIsAppNameVisible,
         setIsDesktopMenuOpen,
         setIsMenuOpen
@@ -35,7 +36,7 @@ const Navbar = () => {
                         <p
                             className={clsx(
                                 'text-xl leading-5 font-semibold font-primary text-center lowercase',
-                                isHeaderInverted ? 'text-ciel' : 'text-darkGreen'
+                                isTitleInverted ? 'text-ciel' : 'text-darkGreen'
                             )}
                         >
                             miguel
@@ -46,24 +47,24 @@ const Navbar = () => {
                 ) : (
                     <div />
                 )}
-                <BurguerMenu className="md:hidden" onClick={handleToggleMenu} isHeaderInverted={isHeaderInverted} />
+                <BurguerMenu className="md:hidden" onClick={handleToggleMenu} isInverted={isBurguerMenuInverted} />
 
                 <div className="relative hidden md:block">
                     <BurguerMenu
-                        isHeaderInverted={isHeaderInverted}
+                        isInverted={isBurguerMenuInverted}
                         onClick={() => setIsDesktopMenuOpen(!isDesktopMenuOpen)}
                     />
                     <nav
                         className={clsx(
                             'absolute top-0 right-0',
                             isDesktopMenuOpen ? '' : 'translate-x-[120%]',
-                            isHeaderInverted ? 'bg-darkGreen' : 'bg-isabelline'
+                            isBurguerMenuInverted ? 'bg-darkGreen' : 'bg-isabelline'
                         )}
                     >
                         <ul
                             className={clsx(
                                 'flex items-center text-xl px-4 py-2',
-                                isHeaderInverted ? 'text-ciel' : 'text-darkGreen'
+                                isBurguerMenuInverted ? 'text-ciel' : 'text-darkGreen'
                             )}
                         >
                             <HashLink onClick={() => setIsDesktopMenuOpen(false)} to={parsePath('/#bio')}>
