@@ -1,6 +1,7 @@
 ### v0.3.0
 
 -   Bugfix: Fix section width on open tab for mobile version.
+-   Update: Keep burguer menu blue when section is open on desktop.
 
 ### v0.2.0
 
