@@ -30,6 +30,15 @@ const sections = [
     { id: tabs.improvisation, Component: Improvisation }
 ];
 
-const MusicSection = (props) => <SectionsList {...props} id="musica" sections={sections} title="Música" />;
+const MusicSection = ({ gsap, ...props }) => (
+    <SectionsList
+        {...props}
+        gsap={gsap}
+        style={{ marginTop: '-18px' }}
+        id="musica"
+        sections={sections}
+        title="Música"
+    />
+);
 
 export default MusicSection;

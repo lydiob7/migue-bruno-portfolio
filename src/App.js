@@ -3,11 +3,11 @@ import { Routes, Route } from 'react-router-dom';
 
 import { ErrorPage, HomePage } from 'pages';
 
-const App = () => {
+const App = ({ gsap }) => {
     return (
         <Routes>
-            <Route path="/" exact element={<HomePage />} />
-            <Route path="*" element={<ErrorPage />} />
+            <Route path="/" exact element={<HomePage gsap={gsap} />} />
+            <Route path="*" element={<ErrorPage gsap={gsap} />} />
         </Routes>
     );
 };

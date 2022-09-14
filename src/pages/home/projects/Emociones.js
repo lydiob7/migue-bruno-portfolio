@@ -1,6 +1,8 @@
 import React from 'react';
 import { ExpandableSection } from 'components';
 
+import emociones from 'assets/images/emociones.jpg';
+
 const Emociones = ({ id, openTab, ...props }) => {
     return (
         <ExpandableSection {...props} id={id} title="Emociones" openTab={openTab}>
@@ -17,6 +19,10 @@ const Emociones = ({ id, openTab, ...props }) => {
                     </a>{' '}
                     en el que interpretamos repertorio de distintos estilos (blues, soul, rock, pop…)
                 </p>
+
+                <div className="w-4/5 mx-auto my-16">
+                    <img className="w-full" src={emociones} alt="Malamiga" />
+                </div>
             </>
         </ExpandableSection>
     );

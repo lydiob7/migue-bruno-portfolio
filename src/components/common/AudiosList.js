@@ -9,8 +9,8 @@ const AudiosList = ({ splitScreen, audios }) => {
     return (
         <div
             className={clsx(
-                'w-full h-full overflow-x-scroll flex md:grid gap-8',
-                splitScreen ? 'md:grid-cols-1 lg:grid-cols-2' : 'md:grid-cols-2'
+                'w-full h-auto overflow-x-scroll flex md:grid gap-8 mt-8',
+                splitScreen ? 'md:grid-cols-1 lg:grid-cols-2' : 'md:grid-cols-2 md:h-auto md:overflow-hidden'
             )}
         >
             {audios.map((props) => (

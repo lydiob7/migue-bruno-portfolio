@@ -9,6 +9,7 @@ const ExpandableSection = ({
     children,
     contentfulId,
     id,
+    openAnimationTiming,
     openTab,
     openTitle,
     title,
@@ -22,14 +23,18 @@ const ExpandableSection = ({
         <div
             {...props}
             className={clsx(
-                'w-full transition-all',
-                openTab === id ? (!splitScreen ? 'flex-1 flex items-center justify-center' : 'flex-1') : ''
+                'w-full',
+                openTab === id
+                    ? !splitScreen
+                        ? 'flex-1 flex items-center justify-center md:ml-16 overflow-hidden'
+                        : 'flex-1'
+                    : ''
             )}
         >
             <div
                 className={clsx(
                     openTab === id && !splitScreen
-                        ? 'flex-1 w-full lg:rotate-90 origin-center lg:h-screen lg:pt-20 lg:shrink-0'
+                        ? 'flex-1 w-full lg:rotate-90 origin-center lg:h-screen lg:pt-20 lg:shrink-0 lg:overflow-y-scroll'
                         : ''
                 )}
             >
@@ -53,7 +58,6 @@ const ExpandableSection = ({
                 </h3>
 
                 <div
-                    style={{ transition: 'height .4s ease-in-out' }}
                     className={clsx(
                         openTab === id
                             ? 'h-full w-full px-4 sm:px-8 md:px-16 my-16 overflow-y-scroll'

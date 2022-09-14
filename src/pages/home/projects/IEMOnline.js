@@ -12,10 +12,10 @@ const IEMOnline = ({ id, openTab, ...props }) => {
                     imaginación, y en la improvisación entendida como control del lenguaje musical.
                 </p>
                 <p className="py-2">
-                    Trabajo de pianista acompañante habitual de distintos coros de la provincia de Valencia, y en los
-                    últimos años fui profesor de piano, lenguaje musical e improvisación en *Voluta Escola de Música*
-                    (Alboraya). Compongo, hago arreglos, transcripciones, *backing tracks*… en esta web podréis ver y
-                    escuchar algunos de mis trabajos.
+                    Dentro de las actividades que realiza el Método IEM, se encuentran los cursos de verano Improvisa
+                    Palencia o los cursos formación de profesorado Online. Formo parte del grupo de profesores que
+                    imparte estos cursos. Te invito a que investigues en la web en qué consisten estos cursos, o a que
+                    veas los siguientes vídeos de presentación.
                 </p>
                 <a
                     className="flex items-center mt-8"

@@ -51,8 +51,8 @@ const sections = [
     }
 ];
 
-const Projects = forwardRef((props, ref) => (
-    <SectionsList {...props} ref={ref} id="proyectos" sections={sections} splitScreen title="Proyectos" />
+const Projects = forwardRef(({ gsap, ...props }, ref) => (
+    <SectionsList {...props} ref={ref} gsap={gsap} id="proyectos" sections={sections} splitScreen title="Proyectos" />
 ));
 
 export default Projects;

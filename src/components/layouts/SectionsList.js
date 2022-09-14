@@ -2,7 +2,9 @@ import React, { forwardRef, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { useContextInfo } from 'hooks/ContextProvider';
 
-const SectionsList = forwardRef(({ id, sections, splitScreen, title, ...props }, ref) => {
+const openAnimationTiming = '.5s';
+
+const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, title, ...props }, ref) => {
     const { setIsBurguerMenuInverted, setIsTabOpen } = useContextInfo();
 
     const [openTab, setOpenTab] = useState(null);
@@ -27,19 +29,69 @@ const SectionsList = forwardRef(({ id, sections, splitScreen, title, ...props },
         }
     };
 
+    useEffect(() => {
+        gsap.fromTo(
+            '.main-page',
+            {
+                backgroundColor: '#14191A'
+            },
+            {
+                backgroundColor: '#F5F0EA',
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '#musica',
+                    start: 'top center-=150',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
+        gsap.fromTo(
+            '.app-menu-btn',
+            {
+                backgroundColor: '#BED6EF'
+            },
+            {
+                backgroundColor: '#14191A',
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '#musica',
+                    start: 'top top+=50',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
+        gsap.fromTo(
+            '.app-name',
+            {
+                color: '#BED6EF'
+            },
+            {
+                color: '#14191A',
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '#musica',
+                    start: 'top top+=50',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
+    }, [gsap]);
+
     return (
         <div
             {...props}
             ref={ref}
             id={id}
             className={clsx(
-                'relative min-h-screen bg-isabelline text-darkGreen',
+                'relative min-h-screen w-screen text-darkGreen',
                 openTab ? 'pt-20 lg:pt-0' : '',
                 splitScreen && openTab ? 'lg:px-16 lg:pb-24' : '',
-                !splitScreen || !openTab ? 'lg:h-screen lg:w-screen lg:flex lg:items-center lg:justify-center' : ''
+                !splitScreen || !openTab ? 'lg:h-screen lg:w-screen lg:flex lg:items-center lg:justify-center' : '',
+                className
             )}
         >
             <div
+                style={{ transition: `flex ${openAnimationTiming} ease` }}
                 className={clsx(
                     'flex flex-col items-center justify-center w-full min-h-screen',
                     !splitScreen || !openTab
@@ -50,16 +102,21 @@ const SectionsList = forwardRef(({ id, sections, splitScreen, title, ...props },
             >
                 <h2
                     className={clsx(
-                        'text-6xl font-black mb-16 transition-all lg:mt-20',
-                        openTab ? 'invisible lg:visible' : '',
-                        isAnimationEnded ? 'hidden lg:block' : ''
+                        'font-black',
+                        openTab ? 'cursor-pointer' : '',
+                        isAnimationEnded
+                            ? 'text-3xl lg:text-6xl lg:mt-20 lg:pb-16 mb-4 lg:w-full lg:text-center border-darkGreen'
+                            : 'text-6xl mb-16 lg:mt-20',
+                        isAnimationEnded && !splitScreen && openTab === sections?.[0]?.id ? 'lg:border-b-2' : ''
                     )}
+                    onClick={() => handleToggleTab(null, false)}
                 >
                     {title || ''}
                 </h2>
                 <div
+                    style={{ transition: `flex ${openAnimationTiming} ease` }}
                     className={clsx(
-                        'flex flex-col w-full items-center justify-center transition-all',
+                        'flex flex-col w-full items-center justify-center',
                         openTab ? 'flex-1' : '',
                         splitScreen ? 'lg:hidden' : ''
                     )}
@@ -69,7 +126,8 @@ const SectionsList = forwardRef(({ id, sections, splitScreen, title, ...props },
                             key={id}
                             borderTop={index === 0}
                             id={id}
-                            onClick={() => handleToggleTab(openTab !== id ? id : null, index !== array.length - 1)}
+                            onClick={() => handleToggleTab(id, index !== array.length - 1)}
+                            openAnimationTiming={openAnimationTiming}
                             openTab={openTab}
                         />
                     ))}
@@ -92,6 +150,7 @@ const SectionsList = forwardRef(({ id, sections, splitScreen, title, ...props },
                                     borderBottom={!openTab || index !== array.length - 1}
                                     id={id}
                                     onClick={() => handleToggleTab(openTab !== id ? id : null)}
+                                    openAnimationTiming={openAnimationTiming}
                                     openTab={openTab}
                                     splitScreen={splitScreen}
                                 />
@@ -106,6 +165,7 @@ const SectionsList = forwardRef(({ id, sections, splitScreen, title, ...props },
                                     key={id}
                                     id={id}
                                     onClick={() => handleToggleTab(openTab !== id ? id : null)}
+                                    openAnimationTiming={openAnimationTiming}
                                     openTab={openTab}
                                     splitScreen={splitScreen}
                                 />

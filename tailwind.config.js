@@ -17,8 +17,16 @@ module.exports = {
             primary: 'NeueKabel',
             secondary: 'Fira Sans'
         },
-        keyframes: {},
-        animation: {}
+        keyframes: {
+            'fade-in': {
+                '0%': { opacity: 0 },
+                '100%': { opacity: 1 }
+            }
+        },
+        animation: {
+            'fade-in': 'fade-in 1s linear forwards',
+            'fade-in-second': 'fade-in 1s linear .5s forwards'
+        }
     },
     plugins: [require('@tailwindcss/line-clamp')],
     purge: ['./src/**/*.{js, jsx, ts, tsx}', './public/index.html']

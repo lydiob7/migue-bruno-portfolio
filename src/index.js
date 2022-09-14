@@ -4,6 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { AppContextProvider } from './hooks/ContextProvider';
 import { createBrowserHistory } from 'history';
 import { parsePath } from 'utils/helpers';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import './index.css';
 
@@ -13,11 +15,13 @@ import App from './App';
 
 const history = createBrowserHistory();
 
+gsap.registerPlugin(ScrollTrigger);
+
 ReactDOM.render(
     <AppContextProvider>
         <Router basename={parsePath()} history={history}>
-            <Navbar />
-            <App />
+            <Navbar gsap={gsap} />
+            <App gsap={gsap} />
         </Router>
     </AppContextProvider>,
     document.getElementById('root')
