@@ -83,7 +83,7 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
             ref={ref}
             id={id}
             className={clsx(
-                'relative min-h-screen w-screen text-darkGreen',
+                'relative min-h-screen lg:min-h-auto lg:h-screen w-screen text-darkGreen lg:overflow-y-hidden',
                 openTab ? 'pt-20 lg:pt-0' : '',
                 splitScreen && openTab ? 'lg:px-16 lg:pb-24' : '',
                 !splitScreen || !openTab ? 'lg:h-screen lg:w-screen lg:flex lg:items-center lg:justify-center' : '',
@@ -157,7 +157,7 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
                             ))}
                     </div>
 
-                    <div className={clsx(openTab ? 'basis-3/5' : '')}>
+                    <div className={clsx(openTab ? 'basis-3/5 h-full overflow-y-scroll' : '')}>
                         {sections
                             ?.filter((section) => section?.id === openTab)
                             ?.map(({ Component, id }) => (

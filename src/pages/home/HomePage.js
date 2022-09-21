@@ -17,10 +17,10 @@ const HomePage = ({ gsap, ...props }) => {
     return (
         <div
             onClick={() => setIsDesktopMenuOpen(false)}
-            className="main-page w-screen h-screen overflow-y-scroll snap-y snap-proximity"
+            className="main-page w-screen h-full overflow-y-scroll snap-y snap-proximity"
             {...props}
         >
-            <Banner gsap={gsap} className="snap-start" />
+            <Banner gsap={gsap} />
             <About gsap={gsap} className="snap-start" />
             <MusicProjectsSection gsap={gsap} className="block lg:flex" />
             <Contact gsap={gsap} className="snap-start" />

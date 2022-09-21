@@ -4,19 +4,18 @@ import clsx from 'clsx';
 const VideoCard = ({ className, description, instagramLink, title, youtubeLink, ...props }) => {
     console.log(instagramLink);
     return (
-        <div
-            className={clsx('w-72 sm:w-80 md:w-96 h-full mx-auto mb-8 shrink-0 animate-fade-in delay-1000', className)}
-            {...props}
-        >
-            <iframe
-                className="w-full h-full md:h-auto md:w-auto mx-auto"
-                src={`https://www.youtube.com/embed/${youtubeLink?.split('.be/')?.[1]}`}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            />
-            <h4 className="w-full text-center font-semibold text-2xl mt-8">{title}</h4>
+        <div className={clsx('w-auto mx-auto mb-8 shrink-0 animate-fade-in delay-500', className)} {...props}>
+            <h4 className="w-full font-semibold text-2xl mt-8">{title}</h4>
+            <div className="w-full h-[200px] mx-auto my-4 bg-darkGreen">
+                <iframe
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${youtubeLink?.split('.be/')?.[1]}`}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                />
+            </div>
 
             {instagramLink && (
                 <div className="w-full flex items-center justify-center mt-2">

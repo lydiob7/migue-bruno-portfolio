@@ -7,34 +7,44 @@ import Projects from './projects/ProjectsSection';
 const lgScreen = 1024;
 
 const MusicProjectsSection = ({ className, gsap }) => {
-    const [isScreenWithLarge, setIsScreenWithLarge] = useState(window.innerWidth >= lgScreen);
+    const [isScreenWidthLarge, setIsScreenWidthLarge] = useState(window.innerWidth >= lgScreen);
 
     useEffect(() => {
         window.addEventListener('resize', (ev) => {
-            if (ev.target.innerWidth >= lgScreen) setIsScreenWithLarge(true);
-            else setIsScreenWithLarge(false);
+            if (ev.target.innerWidth >= lgScreen) setIsScreenWidthLarge(true);
+            else setIsScreenWidthLarge(false);
         });
     }, []);
 
     useEffect(() => {
-        if (isScreenWithLarge)
+        if (isScreenWidthLarge) {
             gsap.to('.music-projects', {
-                transform: 'translateX(-50%)',
-                duration: 1,
                 scrollTrigger: {
                     scroller: '.main-page',
                     trigger: '.music-projects',
                     start: 'top top',
-                    scrub: 1,
+                    end: '+=200vh',
                     pin: true
                 }
             });
-    }, [gsap, isScreenWithLarge]);
+            gsap.to('#proyectos', {
+                xPercent: -100,
+                duration: 0.25,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '.music-projects',
+                    toggleActions: 'restart none none reverse',
+                    start: '+=100vh',
+                    pin: '.music-projects'
+                }
+            });
+        }
+    }, [gsap, isScreenWidthLarge]);
 
     return (
         <div className={clsx('music-projects lg:w-[200vw] lg:flex-row', className)}>
-            <Music gsap={gsap} className="snap-start" />
-            <Projects gsap={gsap} className="snap-start" />
+            <Music gsap={gsap} />
+            <Projects gsap={gsap} className="bg-isabelline" />
         </div>
     );
 };

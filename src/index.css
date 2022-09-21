@@ -13,13 +13,19 @@
     html {
         scroll-padding-top: 0;
         overflow-x: hidden;
-        width: 100vw;
     }
     body {
         @apply font-secondary;
         overflow: hidden;
+    }
+
+    html,
+    body,
+    #root {
         width: 100vw;
-        height: 100vh;
+        height: 102vh;
+        margin: 0;
+        padding: 0;
     }
 
     h1 {

@@ -24,8 +24,8 @@ module.exports = {
             }
         },
         animation: {
-            'fade-in': 'fade-in 1s linear forwards',
-            'fade-in-second': 'fade-in 1s linear .5s forwards'
+            'fade-in': 'fade-in 500ms linear forwards',
+            'fade-in-second': 'fade-in 500ms linear .5s forwards'
         }
     },
     plugins: [require('@tailwindcss/line-clamp')],

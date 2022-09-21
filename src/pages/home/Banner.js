@@ -55,20 +55,13 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
             scale: 0.5,
             left: -50,
             width: '800px',
-            duration: 5,
             scrollTrigger: {
                 scroller: '.main-page',
-                trigger: '.banner-image',
-                start: 'top top+=200',
-                scrub: 1
-            }
-        });
-        gsap.to('.banner-section', {
-            scrollTrigger: {
-                scroller: '.main-page',
-                pin: true,
-                trigger: '.banner-section',
-                start: 'top top'
+                trigger: '#top',
+                pin: '.banner-section',
+                start: 'top top',
+                scrub: 1,
+                toggleActions: 'restart none none reverse'
             }
         });
         gsap.fromTo(
@@ -101,7 +94,23 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
             }
         );
         gsap.fromTo(
-            '.brand2',
+            '.brand2 .word1',
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                xPercent: -30,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '.banner-image',
+                    start: 'bottom center',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
+        gsap.fromTo(
+            '.brand2 .word2',
             {
                 opacity: 0
             },
@@ -111,7 +120,55 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
                     scroller: '.main-page',
                     trigger: '.banner-image',
                     start: 'bottom center',
-                    scrub: 1
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
+        gsap.fromTo(
+            '.brand2 .word3',
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                xPercent: 25,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '.banner-image',
+                    start: 'bottom center',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
+        gsap.fromTo(
+            '.brand2 .word4',
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                xPercent: -30,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '.banner-image',
+                    start: 'bottom center',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
+        gsap.fromTo(
+            '.brand2 .word5',
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                xPercent: 20,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '.banner-image',
+                    start: 'bottom center',
+                    toggleActions: 'restart none none reverse'
                 }
             }
         );
@@ -132,7 +189,7 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
                     <img className="object-cover w-full translate-y-40" src={bannerImage} alt="Miguel Bruñó" />
                 </div>
 
-                <div className="flex flex-col items-center lg:ml-72 lg:mb-16 brand">
+                <div className="flex flex-col items-center lg:ml-72 lg:mb-16 brand z-20">
                     <h1 className="text-6xl font-semibold text-isabelline text-center lowercase">
                         miguel
                         <br />
@@ -142,15 +199,15 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
 
                 <div className="brand2 absolute z-20 bottom-0 left-0 lg:ml-[25vw] lg:mb-24">
                     <h2 className="text-5xl lg:text-7xl text-isabelline">
-                        <span className="inline-block -translate-x-24">Músico</span>
+                        <span className="word1 inline-block">Músico</span>
                         <br />
-                        <span className="inline-block italic font-light">Arreglista</span>
+                        <span className="word2 inline-block italic font-light">Arreglista</span>
                         <br />
-                        <span className="inline-block translate-x-24">Improvisador</span>
+                        <span className="word3 inline-block">Improvisador</span>
                         <br />
-                        <span className="inline-block font-light -translate-x-24">Pianista</span>
+                        <span className="word4 inline-block font-light">Pianista</span>
                         <br />
-                        <span className="inline-block font-semibold translate-x-16">Compositor</span>
+                        <span className="word5 inline-block font-semibold">Compositor</span>
                     </h2>
                 </div>
             </div>

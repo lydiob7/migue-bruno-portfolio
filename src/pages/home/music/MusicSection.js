@@ -31,14 +31,7 @@ const sections = [
 ];
 
 const MusicSection = ({ gsap, ...props }) => (
-    <SectionsList
-        {...props}
-        gsap={gsap}
-        style={{ marginTop: '-18px' }}
-        id="musica"
-        sections={sections}
-        title="Música"
-    />
+    <SectionsList {...props} gsap={gsap} id="musica" sections={sections} title="Música" />
 );
 
 export default MusicSection;
