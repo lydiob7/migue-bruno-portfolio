@@ -50,7 +50,7 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
     }, [gsap]);
 
     useEffect(() => {
-        gsap.fromTo('.banner-image', { opacity: 0 }, { opacity: 1, duration: 1 });
+        gsap.fromTo('.banner-image', { opacity: 0 }, { opacity: 1, duration: 1, delay: 0.5 });
         gsap.from('.banner-image', {
             scale: 0.5,
             left: -50,
@@ -74,6 +74,8 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
                 duration: 1.5
             }
         );
+        gsap.fromTo('.brand', { display: 'none' }, { display: 'block', duration: 0.01, delay: 0.8 });
+        gsap.fromTo('.brand', { opacity: 0 }, { opacity: 1, duration: 1, delay: 0.78 });
         gsap.fromTo(
             '.brand',
             {

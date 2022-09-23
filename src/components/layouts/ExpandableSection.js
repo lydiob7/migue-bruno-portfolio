@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import { useContextInfo } from 'hooks/ContextProvider';
-import { AudiosList, DoubleArrow, VideosList } from 'components';
+import { AudiosList, VideosList } from 'components';
 
 const ExpandableSection = ({
     borderBottom = true,
@@ -18,6 +18,7 @@ const ExpandableSection = ({
     ...props
 }) => {
     const { getAudiosById, getVideosById } = useContextInfo();
+    const [internalTab, setInternalTab] = useState('videos');
 
     return (
         <div
@@ -26,7 +27,7 @@ const ExpandableSection = ({
                 'w-full',
                 openTab === id
                     ? !splitScreen
-                        ? 'flex-1 flex items-center justify-center md:ml-16 overflow-hidden'
+                        ? 'flex-1 flex items-center justify-center overflow-hidden border-b-2 border-darkGreen'
                         : 'flex-1'
                     : ''
             )}
@@ -51,12 +52,34 @@ const ExpandableSection = ({
                             : 'music-item__open'
                     )}
                 >
-                    {openTab === id ? openTitle || title || '' : title || ''}{' '}
-                    {showArrow && openTab !== id && (
-                        <DoubleArrow className="md:hidden" fill="fill-darkGreen" direction="right" />
-                    )}
+                    {openTab === id ? openTitle || title || '' : title || ''}
                 </h3>
 
+                {!splitScreen && openTab === id && (
+                    <div className="flex items-center justify-center gap-8 w-full mt-8">
+                        <button
+                            className={clsx(
+                                'font-medium',
+                                internalTab === 'videos' ? 'border-b-2 border-darkGreen' : ''
+                            )}
+                            disabled={internalTab === 'videos'}
+                            onClick={() => setInternalTab('videos')}
+                        >
+                            Videos
+                        </button>
+                        <span className="font-bold">|</span>
+                        <button
+                            className={clsx(
+                                'font-medium',
+                                internalTab === 'audios' ? 'border-b-2 border-darkGreen' : ''
+                            )}
+                            disabled={internalTab === 'audios'}
+                            onClick={() => setInternalTab('audios')}
+                        >
+                            Audios
+                        </button>
+                    </div>
+                )}
                 <div
                     className={clsx(
                         openTab === id
@@ -72,8 +95,12 @@ const ExpandableSection = ({
                     <div className="mt-16">
                         {openTab === id && (
                             <>
-                                <VideosList splitScreen={splitScreen} videos={getVideosById(contentfulId || id)} />
-                                <AudiosList splitScreen={splitScreen} audios={getAudiosById(contentfulId || id)} />
+                                {internalTab === 'videos' && (
+                                    <VideosList splitScreen={splitScreen} videos={getVideosById(contentfulId || id)} />
+                                )}
+                                {internalTab === 'audios' && (
+                                    <AudiosList splitScreen={splitScreen} audios={getAudiosById(contentfulId || id)} />
+                                )}
                             </>
                         )}
                     </div>

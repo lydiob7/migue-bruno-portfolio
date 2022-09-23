@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect } from 'react';
 
 import { SectionsList } from 'components';
 
@@ -51,8 +51,57 @@ const sections = [
     }
 ];
 
-const Projects = forwardRef(({ gsap, ...props }, ref) => (
-    <SectionsList {...props} ref={ref} gsap={gsap} id="proyectos" sections={sections} splitScreen title="Proyectos" />
-));
+const Projects = forwardRef(({ gsap, ...props }, ref) => {
+    useEffect(() => {
+        gsap.fromTo(
+            '#proyectos',
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                duration: 0.2,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '#proyectos',
+                    start: 'top top+=5',
+                    end: 'bottom top+=100',
+                    toggleActions: 'restart none none reverse',
+                    pin: true,
+                    pinSpacing: false
+                }
+            }
+        );
+        gsap.fromTo(
+            '#proyectos',
+            {
+                opacity: 1
+            },
+            {
+                opacity: 0,
+                duration: 0.2,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '#proyectos',
+                    start: '+=50',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
+    }, [gsap]);
+
+    return (
+        <SectionsList
+            {...props}
+            className="z-30"
+            ref={ref}
+            gsap={gsap}
+            id="proyectos"
+            sections={sections}
+            splitScreen
+            title="Proyectos"
+        />
+    );
+});
 
 export default Projects;

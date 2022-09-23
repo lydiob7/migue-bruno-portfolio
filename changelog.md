@@ -2,6 +2,7 @@
 
 -   Feature: Add snap on sections.
 -   Feature: Add scroll transition from music section to projects section
+-   Feature: Fix transitions.
 
 ### v0.3.0
 

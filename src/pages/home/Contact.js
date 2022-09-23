@@ -4,6 +4,22 @@ import clsx from 'clsx';
 const Contact = forwardRef(({ gsap, ...props }, ref) => {
     useEffect(() => {
         gsap.fromTo(
+            '#contacto',
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                duration: 0.2,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '#contacto',
+                    start: 'top top+=50',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
+        gsap.fromTo(
             '.main-page',
             {
                 backgroundColor: '#F5F0EA'

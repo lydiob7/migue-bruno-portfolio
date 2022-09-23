@@ -97,6 +97,7 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
                     !splitScreen || !openTab
                         ? 'lg:justify-start lg:min-h-[100vw] lg:w-[100vh] lg:h-[100vw] origin-center lg:-rotate-90'
                         : '',
+                    splitScreen ? 'lg:h-[100vh]' : '',
                     openTab ? 'lg:justify-between' : ''
                 )}
             >
@@ -105,8 +106,8 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
                         'font-black',
                         openTab ? 'cursor-pointer' : '',
                         isAnimationEnded
-                            ? 'text-3xl lg:text-6xl lg:mt-20 lg:pb-16 mb-4 lg:w-full lg:text-center border-darkGreen'
-                            : 'text-6xl mb-16 lg:mt-20',
+                            ? 'text-3xl lg:text-9xl lg:mt-20 lg:pb-16 mb-4 lg:w-full lg:text-center border-darkGreen'
+                            : 'text-6xl lg:text-9xl mb-16 lg:mt-20',
                         isAnimationEnded && !splitScreen && openTab === sections?.[0]?.id ? 'lg:border-b-2' : ''
                     )}
                     onClick={() => handleToggleTab(null, false)}
@@ -137,10 +138,10 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
                     className={clsx(
                         'hidden w-full',
                         splitScreen ? 'lg:block' : '',
-                        splitScreen && openTab ? 'flex-1 lg:flex lg:items-center' : ''
+                        splitScreen && openTab ? 'flex-1 lg:flex lg:items-start lg:h-full' : ''
                     )}
                 >
-                    <div className={clsx(openTab ? 'basis-2/5 border-r-2 border-darkGreen pr-8' : '')}>
+                    <div className={clsx(openTab ? 'basis-2/5 border-r-2 border-darkGreen pr-8 mt-24' : '')}>
                         {sections
                             .filter((section) => section?.id !== openTab)
                             .map(({ Component, id }, index, array) => (
@@ -157,7 +158,7 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
                             ))}
                     </div>
 
-                    <div className={clsx(openTab ? 'basis-3/5 h-full overflow-y-scroll' : '')}>
+                    <div className={clsx(openTab ? 'basis-3/5 h-[70vh] overflow-y-scroll' : '')}>
                         {sections
                             ?.filter((section) => section?.id === openTab)
                             ?.map(({ Component, id }) => (

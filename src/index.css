@@ -47,10 +47,10 @@
         @apply flex items-center font-extrabold px-8 cursor-pointer py-1;
     }
     .music-item__closed {
-        @apply border-isabelline text-isabelline bg-darkGreen;
+        @apply border-darkGreen text-darkGreen bg-transparent;
     }
     .music-item-split-screen__closed {
-        @apply border-isabelline text-isabelline bg-darkGreen lg:border-darkGreen lg:text-darkGreen lg:bg-isabelline;
+        @apply border-isabelline text-isabelline bg-darkGreen lg:border-darkGreen lg:text-darkGreen lg:bg-transparent;
     }
     .music-item__open {
         @apply border-darkGreen;

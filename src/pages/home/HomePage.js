@@ -4,7 +4,8 @@ import { useContextInfo } from 'hooks/ContextProvider';
 import About from './About';
 import Banner from './Banner';
 import Contact from './Contact';
-import MusicProjectsSection from './MusicProjectsSection';
+import Music from './music/MusicSection';
+import Projects from './projects/ProjectsSection';
 
 const HomePage = ({ gsap, ...props }) => {
     const { getAudios, getVideos, setIsDesktopMenuOpen } = useContextInfo();
@@ -22,7 +23,8 @@ const HomePage = ({ gsap, ...props }) => {
         >
             <Banner gsap={gsap} />
             <About gsap={gsap} className="snap-start" />
-            <MusicProjectsSection gsap={gsap} className="block lg:flex" />
+            <Music gsap={gsap} />
+            <Projects gsap={gsap} />
             <Contact gsap={gsap} className="snap-start" />
         </div>
     );

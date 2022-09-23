@@ -15,7 +15,7 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
                 scrollTrigger: {
                     scroller: '.main-page',
                     trigger: '#bio',
-                    start: 'top center-=150',
+                    start: 'top center-=450',
                     toggleActions: 'restart none none reverse'
                 }
             }
@@ -108,7 +108,7 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
                     imparto cursos y clases en la actualidad.
                 </p>
 
-                <div className="about-p flex items-center justify-center lg:justify-end gap-8 lg:gap-16 mt-16 px-8 lg:px-[15vw] h-72 w-full">
+                <div className="about-p about-text  flex items-center justify-center gap-8 lg:gap-16 pt-16 px-8 h-72">
                     <div className="h-full">
                         <img className="h-full object-cover" src={bio1} alt="Miguel Bruñó" />
                     </div>
