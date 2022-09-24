@@ -1,9 +1,11 @@
 import React from 'react';
+import { useContextInfo } from 'hooks/ContextProvider';
 import { ExpandableSection } from 'components';
 
 import malamiga from 'assets/images/malamiga.jpg';
 
 const Malamiga = ({ id, openTab, ...props }) => {
+    const { setImageToOpen } = useContextInfo();
     return (
         <ExpandableSection {...props} id={id} title="Malamiga" openTab={openTab}>
             <>
@@ -32,7 +34,13 @@ const Malamiga = ({ id, openTab, ...props }) => {
                     </a>
                 </div>
 
-                <div className="w-4/5 mx-auto my-16">
+                <div
+                    onClick={(ev) => {
+                        ev.stopPropagation();
+                        setImageToOpen({ src: malamiga, alt: 'Malamiga' });
+                    }}
+                    className="w-4/5 mx-auto my-16 cursor-pointer"
+                >
                     <img className="w-full" src={malamiga} alt="Malamiga" />
                 </div>
             </>

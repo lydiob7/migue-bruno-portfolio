@@ -9,7 +9,7 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
 
     useEffect(() => {
         if (!isMenuOpen) {
-            gsap.to('.app-name', { opacity: 0, color: '#BED6EF' });
+            // gsap.to('.app-name', { opacity: 0, color: '#BED6EF' });
             gsap.to('.app-menu-btn', { backgroundColor: '#BED6EF' });
         }
     }, [gsap, isMenuOpen]);
@@ -31,22 +31,16 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
                 }
             }
         );
-        gsap.fromTo(
-            '.app-name',
-            {
-                opacity: 0
-            },
-            {
-                opacity: 1,
-                color: '#14191A',
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '.banner-image',
-                    start: 'top top-=250',
-                    toggleActions: 'restart none none reverse'
-                }
+        gsap.to('.app-name', {
+            opacity: 1,
+            color: '#14191A',
+            scrollTrigger: {
+                scroller: '.main-page',
+                trigger: '.banner-image',
+                start: 'top top-=250',
+                toggleActions: 'restart none none reverse'
             }
-        );
+        });
     }, [gsap]);
 
     useEffect(() => {

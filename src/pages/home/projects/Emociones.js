@@ -1,9 +1,11 @@
 import React from 'react';
+import { useContextInfo } from 'hooks/ContextProvider';
 import { ExpandableSection } from 'components';
 
 import emociones from 'assets/images/emociones.jpg';
 
 const Emociones = ({ id, openTab, ...props }) => {
+    const { setImageToOpen } = useContextInfo();
     return (
         <ExpandableSection {...props} id={id} title="Emociones" openTab={openTab}>
             <>
@@ -20,8 +22,14 @@ const Emociones = ({ id, openTab, ...props }) => {
                     en el que interpretamos repertorio de distintos estilos (blues, soul, rock, pop…)
                 </p>
 
-                <div className="w-4/5 mx-auto my-16">
-                    <img className="w-full" src={emociones} alt="Malamiga" />
+                <div
+                    onClick={(ev) => {
+                        ev.stopPropagation();
+                        setImageToOpen({ src: emociones, alt: 'Emociones' });
+                    }}
+                    className="w-4/5 mx-auto my-16 cursor-pointer"
+                >
+                    <img className="w-full" src={emociones} alt="Emociones" />
                 </div>
             </>
         </ExpandableSection>

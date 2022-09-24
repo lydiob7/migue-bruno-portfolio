@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import './index.css';
 
-import { Navbar } from 'components';
+import { ImageViewer, Navbar } from 'components';
 
 import App from './App';
 
@@ -22,6 +22,7 @@ ReactDOM.render(
         <Router basename={parsePath()} history={history}>
             <Navbar gsap={gsap} />
             <App gsap={gsap} />
+            <ImageViewer gsap={gsap} />
         </Router>
     </AppContextProvider>,
     document.getElementById('root')

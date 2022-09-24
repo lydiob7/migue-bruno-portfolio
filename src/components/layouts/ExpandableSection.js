@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { useContextInfo } from 'hooks/ContextProvider';
 import { AudiosList, VideosList } from 'components';
@@ -19,6 +19,14 @@ const ExpandableSection = ({
 }) => {
     const { getAudiosById, getVideosById } = useContextInfo();
     const [internalTab, setInternalTab] = useState('videos');
+    const [audiosArray, setAudiosArray] = useState([]);
+    const [videosArray, setVideosArray] = useState([]);
+
+    useEffect(() => {
+        setVideosArray(getVideosById(contentfulId || id));
+        setAudiosArray(getAudiosById(contentfulId || id));
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <div
@@ -60,9 +68,10 @@ const ExpandableSection = ({
                         <button
                             className={clsx(
                                 'font-medium',
-                                internalTab === 'videos' ? 'border-b-2 border-darkGreen' : ''
+                                internalTab === 'videos' ? 'border-b-2 border-darkGreen' : '',
+                                videosArray?.length === 0 ? 'text-gray-400' : ''
                             )}
-                            disabled={internalTab === 'videos'}
+                            disabled={internalTab === 'videos' || videosArray?.length === 0}
                             onClick={() => setInternalTab('videos')}
                         >
                             Videos
@@ -71,9 +80,10 @@ const ExpandableSection = ({
                         <button
                             className={clsx(
                                 'font-medium',
-                                internalTab === 'audios' ? 'border-b-2 border-darkGreen' : ''
+                                internalTab === 'audios' ? 'border-b-2 border-darkGreen' : '',
+                                audiosArray?.length === 0 ? 'text-gray-400 font-light' : ''
                             )}
-                            disabled={internalTab === 'audios'}
+                            disabled={internalTab === 'audios' || audiosArray?.length === 0}
                             onClick={() => setInternalTab('audios')}
                         >
                             Audios
@@ -96,10 +106,10 @@ const ExpandableSection = ({
                         {openTab === id && (
                             <>
                                 {internalTab === 'videos' && (
-                                    <VideosList splitScreen={splitScreen} videos={getVideosById(contentfulId || id)} />
+                                    <VideosList splitScreen={splitScreen} videos={videosArray} />
                                 )}
                                 {internalTab === 'audios' && (
-                                    <AudiosList splitScreen={splitScreen} audios={getAudiosById(contentfulId || id)} />
+                                    <AudiosList splitScreen={splitScreen} audios={audiosArray} />
                                 )}
                             </>
                         )}

@@ -5,6 +5,7 @@ export const AppContext = createContext();
 
 export const AppContextProvider = (props) => {
     const [audios, setAudios] = useState([]);
+    const [imageToOpen, setImageToOpen] = useState(null);
     const [isAppNameVisible, setIsAppNameVisible] = useState(false);
     const [isBurguerMenuInverted, setIsBurguerMenuInverted] = useState(false);
     const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
@@ -59,6 +60,7 @@ export const AppContextProvider = (props) => {
         getAudiosById,
         getVideos,
         getVideosById,
+        imageToOpen,
         isAppNameVisible,
         isBurguerMenuInverted,
         isDesktopMenuOpen,
@@ -69,6 +71,7 @@ export const AppContextProvider = (props) => {
         isTabOpen,
         isTitleInverted,
         posts,
+        setImageToOpen,
         setIsAppNameVisible,
         setIsBurguerMenuInverted,
         setIsDesktopMenuOpen,

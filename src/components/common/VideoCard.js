@@ -2,10 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 
 const VideoCard = ({ className, description, instagramLink, title, youtubeLink, ...props }) => {
-    console.log(instagramLink);
     return (
-        <div className={clsx('w-full mx-auto mb-8 shrink-0 animate-fade-in delay-500', className)} {...props}>
-            <h4 className="w-full font-semibold text-2xl mt-8">{title}</h4>
+        <div className={clsx('w-full mx-auto shrink-0 animate-fade-in delay-500', className)} {...props}>
+            <h4 className="w-full font-semibold text-2xl mt-8 truncate">{title}</h4>
             <div className="w-full h-[200px] mx-auto my-4 bg-darkGreen">
                 <iframe
                     className="w-full h-full"

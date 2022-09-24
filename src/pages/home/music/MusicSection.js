@@ -72,7 +72,7 @@ const MusicSection = ({ gsap, ...props }) => {
         );
     }, [gsap]);
 
-    return <SectionsList {...props} gsap={gsap} id="musica" sections={sections} title="Música" className="z-40" />;
+    return <SectionsList {...props} gsap={gsap} id="musica" sections={sections} title="Música" className="z-30" />;
 };
 
 export default MusicSection;

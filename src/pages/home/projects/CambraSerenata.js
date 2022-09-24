@@ -1,9 +1,11 @@
 import React from 'react';
 import { ExpandableSection } from 'components';
+import { useContextInfo } from 'hooks/ContextProvider';
 
 import serenata from 'assets/images/serenata.jpg';
 
 const CambraSerenata = ({ id, openTab, ...props }) => {
+    const { setImageToOpen } = useContextInfo();
     return (
         <ExpandableSection
             {...props}
@@ -52,7 +54,13 @@ const CambraSerenata = ({ id, openTab, ...props }) => {
                     </a>
                 </div>
 
-                <div className="w-4/5 mx-auto my-16">
+                <div
+                    onClick={(ev) => {
+                        ev.stopPropagation();
+                        setImageToOpen({ src: serenata, alt: 'Cor de Cambra Serenata' });
+                    }}
+                    className="w-4/5 mx-auto my-16 cursor-pointer"
+                >
                     <img className="w-full" src={serenata} alt="Cor de Cambra Serenata" />
                 </div>
             </>

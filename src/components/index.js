@@ -3,6 +3,7 @@ export { default as AudiosList } from 'components/common/AudiosList';
 export { default as BurguerMenu } from 'components/common/BurguerMenu';
 export { default as DoubleArrow } from 'components/common/DoubleArrow';
 export { default as ExpandableSection } from 'components/layouts/ExpandableSection';
+export { default as ImageViewer } from 'components/common/ImageViewer';
 export { default as Menu } from 'components/common/Menu';
 export { default as Navbar } from 'components/common/Navbar';
 export { default as SectionsList } from 'components/layouts/SectionsList';

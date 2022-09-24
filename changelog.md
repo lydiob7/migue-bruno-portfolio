@@ -3,6 +3,8 @@
 -   Feature: Add snap on sections.
 -   Feature: Add scroll transition from music section to projects section
 -   Feature: Fix transitions.
+-   Feature: Update music and project sections sizes.
+-   Feature: Add image viewer.
 
 ### v0.3.0
 

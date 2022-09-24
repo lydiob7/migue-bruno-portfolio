@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import clsx from 'clsx';
 import { useContextInfo } from 'hooks/ContextProvider';
 
 import About from './About';
@@ -8,7 +9,7 @@ import Music from './music/MusicSection';
 import Projects from './projects/ProjectsSection';
 
 const HomePage = ({ gsap, ...props }) => {
-    const { getAudios, getVideos, setIsDesktopMenuOpen } = useContextInfo();
+    const { getAudios, getVideos, imageToOpen, setIsDesktopMenuOpen } = useContextInfo();
 
     useEffect(() => {
         getAudios();
@@ -18,14 +19,14 @@ const HomePage = ({ gsap, ...props }) => {
     return (
         <div
             onClick={() => setIsDesktopMenuOpen(false)}
-            className="main-page w-screen h-full overflow-y-scroll snap-y snap-proximity"
+            className={clsx('main-page w-screen h-full overflow-y-scroll', imageToOpen ? 'blur-lg' : '')}
             {...props}
         >
             <Banner gsap={gsap} />
-            <About gsap={gsap} className="snap-start" />
+            <About gsap={gsap} />
             <Music gsap={gsap} />
             <Projects gsap={gsap} />
-            <Contact gsap={gsap} className="snap-start" />
+            <Contact gsap={gsap} />
         </div>
     );
 };

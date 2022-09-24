@@ -97,7 +97,7 @@ const Contact = forwardRef(({ gsap, ...props }, ref) => {
                 props.className
             )}
         >
-            <div className="flex flex-col justify-center gap-4 md:w-4/5 lg:w-3/5 mx-auto md:text-2xl lg:text-3xl">
+            <div className="relative flex flex-col justify-center gap-4 md:w-4/5 lg:w-3/5 mx-auto md:text-2xl lg:text-3xl">
                 <h2 className="contact-p text-4xl md:text-6xl text-center font-bold mb-8 md:mb-24">Contacto</h2>
                 <p className="contact-p md:hidden">
                     Contacta conmigo si estás interesado en alguno de los trabajos que realizo:
@@ -119,6 +119,18 @@ const Contact = forwardRef(({ gsap, ...props }, ref) => {
                     Enviar mensaje
                 </a>
             </div>
+
+            <p className="absolute bottom-0 left-0 right-0 z-20 text-center text-xs md:text-sm mb-12">
+                Esta pagina fue creada por{' '}
+                <a href="https://gabrielapolancoferreyra.com/" target="_blank" rel="noreferrer">
+                    Gabi Polanco
+                </a>{' '}
+                y{' '}
+                <a href="https://www.tomiscattini.com/" target="_blank" rel="noreferrer">
+                    Tomi Scattini
+                </a>{' '}
+                (Itakhi)
+            </p>
         </div>
     );
 });

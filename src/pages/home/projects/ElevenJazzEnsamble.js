@@ -1,10 +1,12 @@
 import React from 'react';
 import { ExpandableSection } from 'components';
+import { useContextInfo } from 'hooks/ContextProvider';
 
 import eleven1 from 'assets/images/eleven1.jpg';
 import eleven2 from 'assets/images/eleven2.jpg';
 
 const ElevenJazzEnsamble = ({ id, openTab, ...props }) => {
+    const { setImageToOpen } = useContextInfo();
     return (
         <ExpandableSection {...props} id={id} title="Eleven Jazz Ensamble" openTab={openTab}>
             <>
@@ -32,8 +34,24 @@ const ElevenJazzEnsamble = ({ id, openTab, ...props }) => {
                 </div>
 
                 <div className="w-4/5 mx-auto my-16 flex flex-col md:flex-row items-center justify-between gap-2">
-                    <img className="w-full md:w-1/2" src={eleven1} alt="Eleven Jazz Ensamble 1" />
-                    <img className="w-full md:w-1/2" src={eleven2} alt="Eleven Jazz Ensamble 2" />
+                    <img
+                        onClick={(ev) => {
+                            ev.stopPropagation();
+                            setImageToOpen({ src: eleven1, alt: 'Eleven Jazz Ensamble 1' });
+                        }}
+                        className="w-full cursor-pointer md:w-1/2"
+                        src={eleven1}
+                        alt="Eleven Jazz Ensamble 1"
+                    />
+                    <img
+                        onClick={(ev) => {
+                            ev.stopPropagation();
+                            setImageToOpen({ src: eleven2, alt: 'Eleven Jazz Ensamble 2' });
+                        }}
+                        className="w-full cursor-pointer md:w-1/2"
+                        src={eleven2}
+                        alt="Eleven Jazz Ensamble 2"
+                    />
                 </div>
             </>
         </ExpandableSection>

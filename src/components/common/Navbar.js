@@ -6,12 +6,12 @@ import { BurguerMenu, Menu } from 'components';
 import { parsePath } from 'utils/helpers';
 
 const Navbar = ({ gsap }) => {
-    const { isMenuOpen, setIsMenuOpen } = useContextInfo();
+    const { imageToOpen, isMenuOpen, setIsMenuOpen } = useContextInfo();
 
     useEffect(() => {
         if (isMenuOpen) {
-            gsap.to('.app-name', { opacity: 1, color: '#BED6EF' });
             gsap.to('.app-menu-btn', { backgroundColor: '#BED6EF' });
+            gsap.fromTo('.menu-app-name', { opacity: 0 }, { opacity: 1 });
             gsap.to('.app-menu', { translateY: 0, duration: 0.2 });
             gsap.utils.toArray('.app-menu-item').forEach((elem, index) => {
                 gsap.fromTo(elem, { opacity: 0 }, { opacity: 1, delay: 0.2 + index * 0.1, duration: 0.3 });
@@ -29,8 +29,8 @@ const Navbar = ({ gsap }) => {
                 rotate: '45deg'
             });
         } else {
-            gsap.to('.app-name', { opacity: 1, color: '#14191A' });
             gsap.to('.app-menu-btn', { backgroundColor: '#14191A' });
+            gsap.fromTo('.menu-app-name', { opacity: 1 }, { opacity: 0 });
             gsap.to('.app-menu', { translateY: '-100%', duration: 0.2 });
             gsap.utils.toArray('.app-menu-item').forEach((elem) => {
                 gsap.fromTo(elem, { opacity: 1 }, { opacity: 0, duration: 0.2 });
@@ -55,7 +55,12 @@ const Navbar = ({ gsap }) => {
 
     return (
         <>
-            <header className="fixed h-16 w-screen px-4 py-2 flex items-center justify-between z-50">
+            <header
+                className={clsx(
+                    'fixed h-16 w-screen px-4 py-2 flex items-center justify-between z-50',
+                    imageToOpen ? 'blur-lg' : ''
+                )}
+            >
                 <HashLink
                     onClick={() => {
                         setIsMenuOpen(false);

@@ -1,9 +1,12 @@
 import React, { forwardRef, useEffect } from 'react';
 import clsx from 'clsx';
+import { useContextInfo } from 'hooks/ContextProvider';
 import bio1 from 'assets/images/bio1.jpeg';
 import bio2 from 'assets/images/bio2.jpeg';
 
 const About = forwardRef(({ className, gsap, ...props }, ref) => {
+    const { setImageToOpen } = useContextInfo();
+
     useEffect(() => {
         gsap.fromTo(
             '.main-page',
@@ -109,11 +112,17 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
                 </p>
 
                 <div className="about-p about-text  flex items-center justify-center gap-8 lg:gap-16 pt-16 px-8 h-72">
-                    <div className="h-full">
+                    <div
+                        onClick={() => setImageToOpen({ src: bio1, alt: 'Miguel Bruñó' })}
+                        className="h-full cursor-pointer"
+                    >
                         <img className="h-full object-cover" src={bio1} alt="Miguel Bruñó" />
                     </div>
 
-                    <div className="h-full">
+                    <div
+                        onClick={() => setImageToOpen({ src: bio2, alt: 'Miguel Bruñó' })}
+                        className="h-full cursor-pointer"
+                    >
                         <img className="h-full object-cover" src={bio2} alt="Miguel Bruñó" />
                     </div>
                 </div>
