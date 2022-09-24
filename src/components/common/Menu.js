@@ -26,11 +26,13 @@ const Menu = ({ onClose, ...props }) => (
             </nav>
         </div>
 
-        <p className="menu-app-name text-xl absolute z-50 px-4 py-3 top-0 left-0 leading-5 text-ciel font-semibold font-primary text-center lowercase">
-            miguel
-            <br />
-            bruñó
-        </p>
+        <HashLink onClick={onClose} to={parsePath('/#top')}>
+            <p className="menu-app-name text-xl absolute z-50 px-4 py-3 top-0 left-0 leading-5 text-ciel font-semibold font-primary text-center lowercase">
+                miguel
+                <br />
+                bruñó
+            </p>
+        </HashLink>
     </>
 );
 

@@ -5,6 +5,7 @@
 -   Feature: Fix transitions.
 -   Feature: Update music and project sections sizes.
 -   Feature: Add image viewer.
+-   Feature: Update projects section and section titles.
 
 ### v0.3.0
 

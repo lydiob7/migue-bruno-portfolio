@@ -23,31 +23,38 @@ const tabs = {
 const sections = [
     {
         id: tabs.iemOnline,
-        Component: IEMOnline
+        Component: IEMOnline,
+        title: 'IEM Online'
     },
     {
         id: tabs.cambraSerenata,
-        Component: CambraSerenata
+        Component: CambraSerenata,
+        title: 'Cor de Cambra Serenata'
     },
     {
         id: tabs.malamiga,
-        Component: Malamiga
+        Component: Malamiga,
+        title: 'Malamiga'
     },
     {
         id: tabs.elevenJazzEnsamble,
-        Component: ElevenJazzEnsamble
+        Component: ElevenJazzEnsamble,
+        title: 'Eleven Jazz Ensamble'
     },
     {
         id: tabs.emociones,
-        Component: Emociones
+        Component: Emociones,
+        title: 'Emociones'
     },
     {
         id: tabs.artsIArcs,
-        Component: ArtsIArcs
+        Component: ArtsIArcs,
+        title: 'Arts i Arcs'
     },
     {
         id: tabs.voluta,
-        Component: Voluta
+        Component: Voluta,
+        title: 'Voluta Escola de Música'
     }
 ];
 
@@ -75,11 +82,13 @@ const Projects = forwardRef(({ gsap, ...props }, ref) => {
         gsap.fromTo(
             '#proyectos',
             {
-                opacity: 1
+                opacity: 1,
+                yPercent: 0
             },
             {
                 opacity: 0,
-                duration: 0.2,
+                yPercent: -100,
+                duration: 0.01,
                 scrollTrigger: {
                     scroller: '.main-page',
                     trigger: '#proyectos',

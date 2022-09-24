@@ -9,7 +9,7 @@ import Music from './music/MusicSection';
 import Projects from './projects/ProjectsSection';
 
 const HomePage = ({ gsap, ...props }) => {
-    const { getAudios, getVideos, imageToOpen, setIsDesktopMenuOpen } = useContextInfo();
+    const { getAudios, getVideos, imageToOpen } = useContextInfo();
 
     useEffect(() => {
         getAudios();
@@ -17,11 +17,7 @@ const HomePage = ({ gsap, ...props }) => {
     }, [getAudios, getVideos]);
 
     return (
-        <div
-            onClick={() => setIsDesktopMenuOpen(false)}
-            className={clsx('main-page w-screen h-full overflow-y-scroll', imageToOpen ? 'blur-lg' : '')}
-            {...props}
-        >
+        <div className={clsx('main-page w-screen h-full overflow-y-scroll', imageToOpen ? 'blur-lg' : '')} {...props}>
             <Banner gsap={gsap} />
             <About gsap={gsap} />
             <Music gsap={gsap} />

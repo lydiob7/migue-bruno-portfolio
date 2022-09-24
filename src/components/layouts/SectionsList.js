@@ -1,12 +1,9 @@
 import React, { forwardRef, useEffect, useState } from 'react';
 import clsx from 'clsx';
-import { useContextInfo } from 'hooks/ContextProvider';
 
 const openAnimationTiming = '.5s';
 
 const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, title, ...props }, ref) => {
-    const { setIsBurguerMenuInverted, setIsTabOpen } = useContextInfo();
-
     const [openTab, setOpenTab] = useState(null);
     const [isAnimationEnded, setIsAnimationEnded] = useState(false);
 
@@ -18,15 +15,8 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
         } else setIsAnimationEnded(false);
     }, [openTab]);
 
-    const handleToggleTab = (id, isNotLastTab) => {
+    const handleToggleTab = (id) => {
         setOpenTab(id);
-        if (id && isNotLastTab) {
-            setIsBurguerMenuInverted(true);
-            setIsTabOpen(true);
-        } else {
-            setIsBurguerMenuInverted(false);
-            setIsTabOpen(false);
-        }
     };
 
     useEffect(() => {
@@ -103,12 +93,13 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
             >
                 <h2
                     className={clsx(
-                        'font-black',
+                        'font-black px-4',
                         openTab ? 'cursor-pointer' : '',
                         isAnimationEnded
-                            ? 'text-3xl lg:text-9xl lg:mt-20 lg:pb-16 mb-4 lg:w-full lg:text-center border-darkGreen'
-                            : 'text-6xl lg:text-9xl mb-16 lg:mt-20',
-                        isAnimationEnded && !splitScreen && openTab === sections?.[0]?.id ? 'lg:border-b-2' : ''
+                            ? 'text-3xl lg:text-[10rem] lg:mt-20 lg:pb-16 mb-4 lg:w-full border-darkGreen'
+                            : 'text-6xl lg:text-[10rem] mb-16 lg:mt-20 lg:w-full',
+                        isAnimationEnded && !splitScreen && openTab === sections?.[0]?.id ? 'lg:border-b-2' : '',
+                        isAnimationEnded && splitScreen && openTab ? 'lg:mt-28 lg:pb-4' : ''
                     )}
                     onClick={() => handleToggleTab(null, false)}
                 >
@@ -142,20 +133,19 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
                     )}
                 >
                     <div className={clsx(openTab ? 'basis-2/5 border-r-2 border-darkGreen pr-8 mt-24' : '')}>
-                        {sections
-                            .filter((section) => section?.id !== openTab)
-                            .map(({ Component, id }, index, array) => (
-                                <Component
-                                    key={id}
-                                    borderTop={!openTab && index === 0}
-                                    borderBottom={!openTab || index !== array.length - 1}
-                                    id={id}
-                                    onClick={() => handleToggleTab(openTab !== id ? id : null)}
-                                    openAnimationTiming={openAnimationTiming}
-                                    openTab={openTab}
-                                    splitScreen={splitScreen}
-                                />
-                            ))}
+                        {sections.map(({ id, title }, index, array) => (
+                            <div className={clsx('w-full')} onClick={() => handleToggleTab(openTab !== id ? id : null)}>
+                                <h3
+                                    className={clsx(
+                                        'music-item music-item-title__closed music-item-split-screen__closed border-b-2',
+                                        openTab === id ? 'text-ciel' : '',
+                                        index === 0 ? 'border-t-2' : ''
+                                    )}
+                                >
+                                    {title}
+                                </h3>
+                            </div>
+                        ))}
                     </div>
 
                     <div className={clsx(openTab ? 'basis-3/5 h-[70vh] overflow-y-scroll' : '')}>

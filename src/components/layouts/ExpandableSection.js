@@ -47,21 +47,23 @@ const ExpandableSection = ({
                         : ''
                 )}
             >
-                <h3
-                    className={clsx(
-                        'music-item',
-                        borderTop ? 'border-t-2' : '',
-                        borderBottom ? 'border-b-2' : '',
-                        openTab === id ? 'music-item-title__open' : 'music-item-title__closed',
-                        openTab && openTab !== id
-                            ? splitScreen
-                                ? 'music-item-split-screen__closed'
-                                : 'music-item__closed'
-                            : 'music-item__open'
-                    )}
-                >
-                    {openTab === id ? openTitle || title || '' : title || ''}
-                </h3>
+                {!splitScreen && (
+                    <h3
+                        className={clsx(
+                            'music-item',
+                            borderTop ? 'border-t-2' : '',
+                            borderBottom ? 'border-b-2' : '',
+                            openTab === id ? 'music-item-title__open' : 'music-item-title__closed',
+                            openTab && openTab !== id
+                                ? splitScreen
+                                    ? 'music-item-split-screen__closed'
+                                    : 'music-item__closed'
+                                : 'music-item__open'
+                        )}
+                    >
+                        {openTab === id ? openTitle || title || '' : title || ''}
+                    </h3>
+                )}
 
                 {!splitScreen && openTab === id && (
                     <div className="flex items-center justify-center gap-8 w-full mt-8">

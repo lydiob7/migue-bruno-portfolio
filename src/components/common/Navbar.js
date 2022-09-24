@@ -61,12 +61,7 @@ const Navbar = ({ gsap }) => {
                     imageToOpen ? 'blur-lg' : ''
                 )}
             >
-                <HashLink
-                    onClick={() => {
-                        setIsMenuOpen(false);
-                    }}
-                    to={parsePath('/#top')}
-                >
+                <HashLink to={parsePath('/#top')}>
                     <p className={clsx('app-name text-xl leading-5 font-semibold font-primary text-center lowercase')}>
                         miguel
                         <br />

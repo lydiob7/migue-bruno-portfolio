@@ -79,7 +79,7 @@ const Contact = forwardRef(({ gsap, ...props }, ref) => {
                     scrollTrigger: {
                         scroller: '.main-page',
                         trigger: elem,
-                        start: 'top bottom-=200',
+                        start: 'top bottom-=250',
                         toggleActions: 'restart none none reverse'
                     }
                 }
@@ -88,36 +88,33 @@ const Contact = forwardRef(({ gsap, ...props }, ref) => {
     }, [gsap]);
 
     return (
-        <div
-            {...props}
-            ref={ref}
-            id="contacto"
-            className={clsx(
-                'h-screen text-isabelline grid content-center px-6 sm:px-12 md:px-24 text-xl',
-                props.className
-            )}
-        >
-            <div className="relative flex flex-col justify-center gap-4 md:w-4/5 lg:w-3/5 mx-auto md:text-2xl lg:text-3xl">
-                <h2 className="contact-p text-4xl md:text-6xl text-center font-bold mb-8 md:mb-24">Contacto</h2>
-                <p className="contact-p md:hidden">
-                    Contacta conmigo si estás interesado en alguno de los trabajos que realizo:
-                </p>
-                <p className="contact-p hidden md:inline-block">
-                    Contacta conmigo si estás interesado en alguno de los trabajos que realizo: arreglos, composiciones,
-                    transcripciones, pianista acompañante.
-                </p>
-                <p className="contact-p font-medium md:hidden">
-                    arreglos, composiciones, transcripciones, pianista acompañante.
-                </p>
-                <p className="contact-p">También puedes contactarme para cualquier consulta o comentario.</p>
-                <a
-                    className="contact-p btn mt-4 md:mt-16 mx-auto"
-                    href="mailto:miguelbrusan@gmail.com"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Enviar mensaje
-                </a>
+        <div {...props} ref={ref} id="contacto" className={clsx('relative h-screen text-isabelline', props.className)}>
+            <h2 className="contact-p absolute left-0 top-40 text-4xl md:text-[10rem] font-bold mb-8 md:mb-24">
+                Contacto
+            </h2>
+
+            <div className="w-full h-full grid content-center text-xl">
+                <div className="relative flex flex-col justify-center gap-4 md:w-4/5 lg:w-3/5 mx-auto md:text-2xl lg:text-3xl">
+                    <p className="contact-p md:hidden">
+                        Contacta conmigo si estás interesado en alguno de los trabajos que realizo:
+                    </p>
+                    <p className="contact-p hidden md:inline-block">
+                        Contacta conmigo si estás interesado en alguno de los trabajos que realizo: arreglos,
+                        composiciones, transcripciones, pianista acompañante.
+                    </p>
+                    <p className="contact-p font-medium md:hidden">
+                        arreglos, composiciones, transcripciones, pianista acompañante.
+                    </p>
+                    <p className="contact-p">También puedes contactarme para cualquier consulta o comentario.</p>
+                    <a
+                        className="contact-p btn mt-4 md:mt-16 mx-auto"
+                        href="mailto:miguelbrusan@gmail.com"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Enviar mensaje
+                    </a>
+                </div>
             </div>
 
             <p className="absolute bottom-0 left-0 right-0 z-20 text-center text-xs md:text-sm mb-12">

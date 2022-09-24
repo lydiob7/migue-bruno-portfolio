@@ -1,15 +1,13 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useContextInfo } from 'hooks/ContextProvider';
 import { parsePath } from 'utils/helpers';
 
-const ErrorPage = () => {
-    const { isHeaderInverted, setIsHeaderInverted } = useContextInfo();
-
-    useLayoutEffect(() => {
-        if (!isHeaderInverted) setIsHeaderInverted(true);
-        // eslint-disable-next-line
-    }, [isHeaderInverted]);
+const ErrorPage = ({ gsap }) => {
+    useEffect(() => {
+        gsap.to('.menu-app-name', {
+            opacity: 1
+        });
+    }, [gsap]);
 
     return (
         <div className="w-screen h-screen bg-darkGreen text-ciel flex flex-col items-center justify-center">
