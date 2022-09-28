@@ -1,4 +1,5 @@
-import React, { forwardRef, useEffect } from 'react';
+import React from 'react';
+import clsx from 'clsx';
 
 import { SectionsList } from 'components';
 
@@ -58,59 +59,15 @@ const sections = [
     }
 ];
 
-const Projects = forwardRef(({ gsap, ...props }, ref) => {
-    useEffect(() => {
-        gsap.fromTo(
-            '#proyectos',
-            {
-                opacity: 0
-            },
-            {
-                opacity: 1,
-                duration: 0.2,
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '#proyectos',
-                    start: 'top top+=5',
-                    end: 'bottom top+=100',
-                    toggleActions: 'restart none none reverse',
-                    pin: true,
-                    pinSpacing: false
-                }
-            }
-        );
-        gsap.fromTo(
-            '#proyectos',
-            {
-                opacity: 1,
-                yPercent: 0
-            },
-            {
-                opacity: 0,
-                yPercent: -100,
-                duration: 0.01,
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '#proyectos',
-                    start: '+=50',
-                    toggleActions: 'restart none none reverse'
-                }
-            }
-        );
-    }, [gsap]);
-
-    return (
-        <SectionsList
-            {...props}
-            className="z-30"
-            ref={ref}
-            gsap={gsap}
-            id="proyectos"
-            sections={sections}
-            splitScreen
-            title="Proyectos"
-        />
-    );
-});
+const Projects = ({ className, ...props }) => (
+    <SectionsList
+        {...props}
+        className={clsx('z-30', className)}
+        id="proyectos"
+        sections={sections}
+        splitScreen
+        title="Proyectos"
+    />
+);
 
 export default Projects;

@@ -6,7 +6,7 @@ const Menu = ({ onClose, ...props }) => (
     <>
         <div
             {...props}
-            className="app-menu fixed w-screen h-screen flex items-center justify-center bg-darkGreen text-ciel top-0 left-0 -translate-y-full z-40"
+            className="app-menu fixed w-screen h-screen flex items-center justify-center bg-darkGreen text-ciel top-0 left-0 -translate-y-full z-50"
         >
             <nav>
                 <ul className="text-5xl font-medium">
@@ -27,7 +27,10 @@ const Menu = ({ onClose, ...props }) => (
         </div>
 
         <HashLink onClick={onClose} to={parsePath('/#top')}>
-            <p className="menu-app-name text-xl absolute z-50 px-4 py-3 top-0 left-0 leading-5 text-ciel font-semibold font-primary text-center lowercase">
+            <p
+                style={{ zIndex: 52 }}
+                className="menu-app-name text-xl absolute z-50 px-4 py-3 top-0 left-0 leading-5 text-ciel font-semibold font-primary text-center lowercase"
+            >
                 miguel
                 <br />
                 bruñó

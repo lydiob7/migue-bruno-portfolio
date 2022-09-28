@@ -8,11 +8,12 @@ const VideoCard = ({ className, description, instagramLink, title, youtubeLink, 
             <div className="w-full h-[200px] mx-auto my-4 bg-darkGreen">
                 <iframe
                     className="w-full h-full"
-                    src={`https://www.youtube.com/embed/${youtubeLink?.split('.be/')?.[1]}`}
-                    title="YouTube video player"
-                    frameborder="0"
+                    src={`https://www.youtube-nocookie.com/embed/${youtubeLink?.split('.be/')?.[1]}`}
+                    title={title}
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowFullScreen
+                    crossOrigin="anonymous"
                 />
             </div>
 
@@ -25,7 +26,7 @@ const VideoCard = ({ className, description, instagramLink, title, youtubeLink, 
                         rel="noreferrer"
                         className="ml-4"
                     >
-                        <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="https://www.w3.org/2000/svg">
                             <path
                                 fillRule="evenodd"
                                 clipRule="evenodd"

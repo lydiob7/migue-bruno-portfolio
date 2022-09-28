@@ -14,7 +14,7 @@ const VideosList = ({ splitScreen, videos }) => {
             )}
         >
             {videos.map((props) => (
-                <VideoCard key={props?.title} {...props} />
+                <VideoCard key={props?.youtubeLink} {...props} />
             ))}
         </div>
     );

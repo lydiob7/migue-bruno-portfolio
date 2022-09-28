@@ -9,22 +9,6 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
 
     useEffect(() => {
         gsap.fromTo(
-            '.main-page',
-            {
-                backgroundColor: '#14191A'
-            },
-            {
-                backgroundColor: '#14191A',
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '#bio',
-                    start: 'top center-=450',
-                    toggleActions: 'restart none none reverse'
-                }
-            }
-        );
-
-        gsap.fromTo(
             '.app-menu-btn',
             {
                 backgroundColor: '#14191A'
@@ -81,9 +65,9 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
     return (
         <div {...props} id="bio" className={clsx('min-h-screen md:h-auto w-screen flex', className)}>
             <div ref={ref} className="w-screen min-h-screen shrink-0 text-isabelline py-32 text-2xl lg:text-3xl px-24">
-                <h2 className="about-p text-4xl md:text-[10rem] font-bold mb-8 md:mb-24">Bio</h2>
+                <h2 className="about-p text-6xl md:text-[8rem] font-bold mb-8 md:mb-24">Bio</h2>
 
-                <div className="about-p flex gap-4 border-isabelline border-l-2">
+                <div className="about-p flex flex-col-reverse lg:flex-row gap-4 border-isabelline border-l-2">
                     <div className="basis-3/5">
                         <p className="about-p about-text mb-8">
                             Soy un músico nacido en Valencia (1995), donde vivo y trabajo habitualmente. Actualmente
@@ -105,13 +89,13 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
 
                     <div
                         onClick={() => setImageToOpen({ src: bio1, alt: 'Miguel Bruñó' })}
-                        className="about-p basis-2/5 cursor-pointer"
+                        className="about-p basis-2/5 cursor-pointer ml-4 lg:ml-auto"
                     >
                         <img className="w-full object-cover" src={bio1} alt="Miguel Bruñó" />
                     </div>
                 </div>
 
-                <div className="about-p flex gap-4 pt-16 border-isabelline border-l-2">
+                <div className="about-p flex flex-col lg:flex-row gap-4 pt-16 border-isabelline border-l-2">
                     <div
                         onClick={() => setImageToOpen({ src: bio2, alt: 'Miguel Bruñó' })}
                         className="about-p h-full basis-3/5 cursor-pointer px-4 md:px-16 py-8"

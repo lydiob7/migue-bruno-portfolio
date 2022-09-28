@@ -1,9 +1,12 @@
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import { useContextInfo } from 'hooks/ContextProvider';
 
 const openAnimationTiming = '.5s';
 
-const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, title, ...props }, ref) => {
+const SectionsList = ({ className, id, sections, splitScreen, title, ...props }) => {
+    const { isMusicOutOfScreen, isProjectsOutOfScreen } = useContextInfo();
+
     const [openTab, setOpenTab] = useState(null);
     const [isAnimationEnded, setIsAnimationEnded] = useState(false);
 
@@ -15,62 +18,17 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
         } else setIsAnimationEnded(false);
     }, [openTab]);
 
+    useEffect(() => {
+        if ((id === 'musica' && isMusicOutOfScreen) || (id === 'proyectos' && isProjectsOutOfScreen)) setOpenTab(null);
+    }, [id, isMusicOutOfScreen, isProjectsOutOfScreen]);
+
     const handleToggleTab = (id) => {
         setOpenTab(id);
     };
 
-    useEffect(() => {
-        gsap.fromTo(
-            '.main-page',
-            {
-                backgroundColor: '#14191A'
-            },
-            {
-                backgroundColor: '#F5F0EA',
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '#musica',
-                    start: 'top center-=150',
-                    toggleActions: 'restart none none reverse'
-                }
-            }
-        );
-        gsap.fromTo(
-            '.app-menu-btn',
-            {
-                backgroundColor: '#BED6EF'
-            },
-            {
-                backgroundColor: '#14191A',
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '#musica',
-                    start: 'top top+=50',
-                    toggleActions: 'restart none none reverse'
-                }
-            }
-        );
-        gsap.fromTo(
-            '.app-name',
-            {
-                color: '#BED6EF'
-            },
-            {
-                color: '#14191A',
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '#musica',
-                    start: 'top top+=50',
-                    toggleActions: 'restart none none reverse'
-                }
-            }
-        );
-    }, [gsap]);
-
     return (
         <div
             {...props}
-            ref={ref}
             id={id}
             className={clsx(
                 'relative min-h-screen lg:min-h-auto lg:h-screen w-screen text-darkGreen lg:overflow-y-hidden',
@@ -93,11 +51,11 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
             >
                 <h2
                     className={clsx(
-                        'font-black px-4',
+                        'font-black px-4 transition-all text-6xl lg:text-[8rem]',
                         openTab ? 'cursor-pointer' : '',
                         isAnimationEnded
-                            ? 'text-3xl lg:text-[10rem] lg:mt-20 lg:pb-16 mb-4 lg:w-full border-darkGreen'
-                            : 'text-6xl lg:text-[10rem] mb-16 lg:mt-20 lg:w-full',
+                            ? 'lg:mt-20 lg:pb-16 mb-4 lg:w-full border-darkGreen'
+                            : 'mb-16 lg:mt-20 lg:w-full',
                         isAnimationEnded && !splitScreen && openTab === sections?.[0]?.id ? 'lg:border-b-2' : '',
                         isAnimationEnded && splitScreen && openTab ? 'lg:mt-28 lg:pb-4' : ''
                     )}
@@ -129,7 +87,7 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
                     className={clsx(
                         'hidden w-full',
                         splitScreen ? 'lg:block' : '',
-                        splitScreen && openTab ? 'flex-1 lg:flex lg:items-start lg:h-full' : ''
+                        splitScreen && openTab ? 'flex-1 lg:flex lg:items-start lg:h-full pt-8' : ''
                     )}
                 >
                     <div className={clsx(openTab ? 'basis-2/5 border-r-2 border-darkGreen pr-8 mt-24' : '')}>
@@ -138,6 +96,7 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
                                 <h3
                                     className={clsx(
                                         'music-item music-item-title__closed music-item-split-screen__closed border-b-2',
+                                        openTab ? 'lg:text-2xl lg:py-2' : '',
                                         openTab === id ? 'text-ciel' : '',
                                         index === 0 ? 'border-t-2' : ''
                                     )}
@@ -166,6 +125,6 @@ const SectionsList = forwardRef(({ className, gsap, id, sections, splitScreen, t
             </div>
         </div>
     );
-});
+};
 
 export default SectionsList;

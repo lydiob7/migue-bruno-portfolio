@@ -57,9 +57,10 @@ const Navbar = ({ gsap }) => {
         <>
             <header
                 className={clsx(
-                    'fixed h-16 w-screen px-4 py-2 flex items-center justify-between z-50',
+                    'fixed h-16 w-screen px-4 py-2 flex items-center justify-between',
                     imageToOpen ? 'blur-lg' : ''
                 )}
+                style={{ zIndex: 51 }}
             >
                 <HashLink to={parsePath('/#top')}>
                     <p className={clsx('app-name text-xl leading-5 font-semibold font-primary text-center lowercase')}>

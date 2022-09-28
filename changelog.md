@@ -1,3 +1,7 @@
+### v0.5.0
+
+-   Bugfix: Fix videos not showing.
+
 ### v0.4.0
 
 -   Feature: Add snap on sections.

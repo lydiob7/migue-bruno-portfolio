@@ -23,10 +23,11 @@ const ExpandableSection = ({
     const [videosArray, setVideosArray] = useState([]);
 
     useEffect(() => {
-        setVideosArray(getVideosById(contentfulId || id));
-        setAudiosArray(getAudiosById(contentfulId || id));
-        // eslint-disable-next-line
-    }, []);
+        const videos = getVideosById(contentfulId || id);
+        const audios = getAudiosById(contentfulId || id);
+        setVideosArray(videos);
+        setAudiosArray(audios);
+    }, [contentfulId, id, getAudiosById, getVideosById]);
 
     return (
         <div

@@ -5,6 +5,8 @@ export const AppContext = createContext();
 
 export const AppContextProvider = (props) => {
     const [audios, setAudios] = useState([]);
+    const [isMusicOutOfScreen, setIsMusicOutOfScreen] = useState(true);
+    const [isProjectsOutOfScreen, setIsProjectsOutOfScreen] = useState(true);
     const [imageToOpen, setImageToOpen] = useState(null);
     const [isLoadingAudios, setIsLoadingAudios] = useState(false);
     const [isLoadingPosts, setIsLoadingPosts] = useState(false);
@@ -43,9 +45,13 @@ export const AppContextProvider = (props) => {
         isLoadingAudios,
         isLoadingPosts,
         isMenuOpen,
+        isMusicOutOfScreen,
+        isProjectsOutOfScreen,
         posts,
         setImageToOpen,
-        setIsMenuOpen
+        setIsMenuOpen,
+        setIsMusicOutOfScreen,
+        setIsProjectsOutOfScreen
     };
 
     return <AppContext.Provider {...props} value={value} />;

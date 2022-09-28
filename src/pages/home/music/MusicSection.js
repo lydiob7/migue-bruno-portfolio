@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import clsx from 'clsx';
 
 import { SectionsList } from 'components';
 
@@ -33,48 +34,8 @@ const sections = [
     }
 ];
 
-const MusicSection = ({ gsap, ...props }) => {
-    useEffect(() => {
-        gsap.fromTo(
-            '#musica',
-            {
-                opacity: 0
-            },
-            {
-                opacity: 1,
-                duration: 0.2,
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '#musica',
-                    start: 'top top+=5',
-                    end: 'bottom top+=100',
-                    toggleActions: 'restart none none reverse',
-                    pin: true,
-                    pinSpacing: false
-                }
-            }
-        );
-        gsap.fromTo(
-            '#musica',
-            {
-                opacity: 1,
-                yPercent: 0
-            },
-            {
-                opacity: 0,
-                yPercent: -100,
-                duration: 0.01,
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '#musica',
-                    start: '+=50',
-                    toggleActions: 'restart none none reverse'
-                }
-            }
-        );
-    }, [gsap]);
-
-    return <SectionsList {...props} gsap={gsap} id="musica" sections={sections} title="Música" className="z-30" />;
-};
+const MusicSection = ({ className, ...props }) => (
+    <SectionsList {...props} id="musica" sections={sections} title="Música" className={clsx('z-40', className)} />
+);
 
 export default MusicSection;
