@@ -13,6 +13,7 @@ const CambraSerenata = ({ id, openTab, ...props }) => {
             openTitle="Cor de Cambra Serenata"
             title="Cambra Serenata"
             openTab={openTab}
+            splitScreen
         >
             <>
                 <p className="py-2">

@@ -1,6 +1,6 @@
 {
     "name": "migue-bruno",
-    "version": "0.4.0",
+    "version": "0.6.0",
     "private": true,
     "dependencies": {
         "@contentful/rich-text-react-renderer": "^15.12.0",

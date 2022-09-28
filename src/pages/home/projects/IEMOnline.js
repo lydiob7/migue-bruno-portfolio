@@ -3,7 +3,7 @@ import { ExpandableSection } from 'components';
 
 const IEMOnline = ({ id, openTab, ...props }) => {
     return (
-        <ExpandableSection {...props} id={id} title="IEM Online" openTab={openTab}>
+        <ExpandableSection {...props} id={id} title="IEM Online" openTab={openTab} splitScreen>
             <>
                 <p className="py-2">
                     El Instituto de Educación Musical (IEM) es una asociación de profesores creada y dirigida por Emilio

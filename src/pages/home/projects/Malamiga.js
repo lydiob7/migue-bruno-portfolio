@@ -7,7 +7,7 @@ import malamiga from 'assets/images/malamiga.jpg';
 const Malamiga = ({ id, openTab, ...props }) => {
     const { setImageToOpen } = useContextInfo();
     return (
-        <ExpandableSection {...props} id={id} title="Malamiga" openTab={openTab}>
+        <ExpandableSection {...props} id={id} title="Malamiga" openTab={openTab} splitScreen>
             <>
                 <p className="py-2">
                     Malamiga es una obra teatral escrita y dirigida por Cecilia Taboada Palafox, en la cual formo parte

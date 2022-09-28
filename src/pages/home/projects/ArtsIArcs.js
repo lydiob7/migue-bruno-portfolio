@@ -3,7 +3,7 @@ import { ExpandableSection } from 'components';
 
 const ArtsIArcs = ({ id, openTab, ...props }) => {
     return (
-        <ExpandableSection {...props} id={id} title="Arts i Arcs" openTab={openTab}>
+        <ExpandableSection {...props} id={id} title="Arts i Arcs" openTab={openTab} splitScreen>
             <>
                 <p className="py-2">
                     Arts i Arcs es una empresa con la que suelo colaborar. Ofrecen música para bodas, tanto para bodas

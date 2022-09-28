@@ -29,6 +29,8 @@ const ExpandableSection = ({
         setAudiosArray(audios);
     }, [contentfulId, id, getAudiosById, getVideosById]);
 
+    console.log(splitScreen);
+
     return (
         <div
             {...props}
@@ -37,7 +39,7 @@ const ExpandableSection = ({
                 openTab === id
                     ? !splitScreen
                         ? 'flex-1 flex items-center justify-center overflow-hidden border-b-2 border-darkGreen'
-                        : 'flex-1'
+                        : 'flex-1 pb-32'
                     : ''
             )}
         >
@@ -48,23 +50,17 @@ const ExpandableSection = ({
                         : ''
                 )}
             >
-                {!splitScreen && (
-                    <h3
-                        className={clsx(
-                            'music-item',
-                            borderTop ? 'border-t-2' : '',
-                            borderBottom ? 'border-b-2' : '',
-                            openTab === id ? 'music-item-title__open' : 'music-item-title__closed',
-                            openTab && openTab !== id
-                                ? splitScreen
-                                    ? 'music-item-split-screen__closed'
-                                    : 'music-item__closed'
-                                : 'music-item__open'
-                        )}
-                    >
-                        {openTab === id ? openTitle || title || '' : title || ''}
-                    </h3>
-                )}
+                <h3
+                    className={clsx(
+                        'music-item',
+                        borderTop ? 'border-t-2' : '',
+                        borderBottom ? 'border-b-2' : '',
+                        openTab === id ? 'music-item-title__open' : 'music-item-title__closed',
+                        openTab && openTab !== id ? 'music-item__closed' : 'music-item__open'
+                    )}
+                >
+                    {openTab === id ? openTitle || title || '' : title || ''}
+                </h3>
 
                 {!splitScreen && openTab === id && (
                     <div className="flex items-center justify-center gap-8 w-full mt-8">
@@ -96,7 +92,7 @@ const ExpandableSection = ({
                 <div
                     className={clsx(
                         openTab === id
-                            ? 'h-full w-full px-4 sm:px-8 md:px-16 my-16 overflow-y-scroll'
+                            ? 'h-full w-full px-4 sm:px-8 md:px-16 overflow-y-scroll'
                             : splitScreen
                             ? 'lg:w-0 h-0 overflow-hidden'
                             : 'h-0 overflow-hidden',

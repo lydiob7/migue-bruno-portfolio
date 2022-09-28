@@ -1,3 +1,9 @@
+### v0.6.0
+
+-   Update: Change contact on desktop.
+-   Update: Change bio on mobile.
+-   Update: Change projects on mobile and desktop
+
 ### v0.5.0
 
 -   Bugfix: Fix videos not showing.

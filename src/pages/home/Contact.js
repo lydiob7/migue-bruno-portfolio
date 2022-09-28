@@ -58,11 +58,11 @@ const Contact = forwardRef(({ gsap, ...props }, ref) => {
 
     return (
         <div {...props} ref={ref} id="contacto" className={clsx('relative h-screen text-isabelline', props.className)}>
-            <h2 className="contact-p absolute left-0 top-40 text-6xl md:text-[8rem] font-bold mb-8 md:mb-24">
+            <h2 className="contact-p absolute left-0 top-20 text-6xl md:text-[8rem] font-bold mb-8 md:mb-24">
                 Contacto
             </h2>
 
-            <div className="w-full h-full grid content-center pt-48 text-xl">
+            <div className="w-full h-full grid content-center pt-24 text-xl">
                 <div className="relative flex flex-col justify-center gap-4 w-4/5 lg:w-3/5 mx-auto md:text-2xl lg:text-3xl">
                     <p className="contact-p md:hidden">
                         Contacta conmigo si estás interesado en alguno de los trabajos que realizo:

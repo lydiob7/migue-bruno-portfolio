@@ -8,7 +8,7 @@ import eleven2 from 'assets/images/eleven2.jpg';
 const ElevenJazzEnsamble = ({ id, openTab, ...props }) => {
     const { setImageToOpen } = useContextInfo();
     return (
-        <ExpandableSection {...props} id={id} title="Eleven Jazz Ensamble" openTab={openTab}>
+        <ExpandableSection {...props} id={id} title="Eleven Jazz Ensamble" openTab={openTab} splitScreen>
             <>
                 <p className="py-2">
                     Eleven Jazz Ensemble es una formación jazzística cuyo director y arreglista es Diego Barberá, en la

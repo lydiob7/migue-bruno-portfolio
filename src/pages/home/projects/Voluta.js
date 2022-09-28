@@ -3,7 +3,7 @@ import { ExpandableSection } from 'components';
 
 const Voluta = ({ id, openTab, ...props }) => {
     return (
-        <ExpandableSection {...props} id={id} title="Voluta Escola de Música" openTab={openTab}>
+        <ExpandableSection {...props} id={id} title="Voluta Escola de Música" openTab={openTab} splitScreen>
             <>
                 <p className="py-2">
                     Voluta es la escuela en la que he desarrollado mi actividad pedagógica los últimos años. Allí han

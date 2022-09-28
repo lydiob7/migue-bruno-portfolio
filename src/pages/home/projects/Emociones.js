@@ -7,7 +7,7 @@ import emociones from 'assets/images/emociones.jpg';
 const Emociones = ({ id, openTab, ...props }) => {
     const { setImageToOpen } = useContextInfo();
     return (
-        <ExpandableSection {...props} id={id} title="Emociones" openTab={openTab}>
+        <ExpandableSection {...props} id={id} title="Emociones" openTab={openTab} splitScreen>
             <>
                 <p className="py-2">
                     Emociones es un proyecto junto a la cantante{' '}

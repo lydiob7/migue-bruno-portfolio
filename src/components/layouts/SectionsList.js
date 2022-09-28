@@ -52,7 +52,7 @@ const SectionsList = ({ className, id, sections, splitScreen, title, ...props })
                 <h2
                     className={clsx(
                         'font-black px-4 transition-all text-6xl lg:text-[8rem]',
-                        openTab ? 'cursor-pointer' : '',
+                        openTab ? 'hidden lg:block cursor-pointer' : '',
                         isAnimationEnded
                             ? 'lg:mt-20 lg:pb-16 mb-4 lg:w-full border-darkGreen'
                             : 'mb-16 lg:mt-20 lg:w-full',
@@ -63,6 +63,22 @@ const SectionsList = ({ className, id, sections, splitScreen, title, ...props })
                 >
                     {title || ''}
                 </h2>
+
+                <div
+                    onClick={() => handleToggleTab(null, false)}
+                    className={openTab ? 'block cursor-pointer self-start ml-8 mb-8 lg:hidden' : 'hidden'}
+                >
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20 5.33334L9.33337 16L20 26.6667"
+                            stroke="#14191A"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </div>
+
                 <div
                     style={{ transition: `flex ${openAnimationTiming} ease` }}
                     className={clsx(
@@ -90,7 +106,7 @@ const SectionsList = ({ className, id, sections, splitScreen, title, ...props })
                         splitScreen && openTab ? 'flex-1 lg:flex lg:items-start lg:h-full pt-8' : ''
                     )}
                 >
-                    <div className={clsx(openTab ? 'basis-2/5 border-r-2 border-darkGreen pr-8 mt-24' : '')}>
+                    <div className={clsx(openTab ? 'basis-2/5 border-r-2 border-darkGreen pr-8 mt-4' : '')}>
                         {sections.map(({ id, title }, index, array) => (
                             <div className={clsx('w-full')} onClick={() => handleToggleTab(openTab !== id ? id : null)}>
                                 <h3
@@ -107,7 +123,7 @@ const SectionsList = ({ className, id, sections, splitScreen, title, ...props })
                         ))}
                     </div>
 
-                    <div className={clsx(openTab ? 'basis-3/5 h-[70vh] overflow-y-scroll' : '')}>
+                    <div className={clsx(openTab ? 'basis-3/5 h-[55vh] overflow-y-scroll' : '')}>
                         {sections
                             ?.filter((section) => section?.id === openTab)
                             ?.map(({ Component, id }) => (
