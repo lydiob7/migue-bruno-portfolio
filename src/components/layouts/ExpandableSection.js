@@ -56,7 +56,8 @@ const ExpandableSection = ({
                         borderTop ? 'border-t-2' : '',
                         borderBottom ? 'border-b-2' : '',
                         openTab === id ? 'music-item-title__open' : 'music-item-title__closed',
-                        openTab && openTab !== id ? 'music-item__closed' : 'music-item__open'
+                        openTab && openTab !== id ? 'music-item__closed' : 'music-item__open',
+                        splitScreen ? 'lg:hidden' : ''
                     )}
                 >
                     {openTab === id ? openTitle || title || '' : title || ''}

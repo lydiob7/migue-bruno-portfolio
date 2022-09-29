@@ -1,3 +1,7 @@
+### v0.7.0
+
+-   Feature: Add photo credits.
+
 ### v0.6.0
 
 -   Update: Change contact on desktop.

@@ -91,10 +91,20 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
                     </div>
 
                     <div
-                        onClick={() => setImageToOpen({ src: bio1, alt: 'Miguel Bruñó' })}
-                        className="about-p basis-2/5 cursor-pointer ml-4 lg:ml-auto"
+                        onClick={() =>
+                            setImageToOpen({ src: bio1, alt: 'Miguel Bruñó, Fotografía por: Paloma Ferrer' })
+                        }
+                        className="relative about-p basis-2/5 cursor-pointer ml-4 lg:ml-auto"
                     >
-                        <img className="w-full object-cover" src={bio1} alt="Miguel Bruñó" />
+                        <img
+                            className="w-full h-full object-cover"
+                            src={bio1}
+                            alt="Miguel Bruñó, Fotografía por: Paloma Ferrer"
+                        />
+
+                        <p className="absolute bottom-2 right-2 text-xs text-darkGreen font-medium">
+                            Fotografía por: Paloma Ferrer
+                        </p>
                     </div>
                 </div>
 
@@ -103,10 +113,14 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
                  gap-4 pt-16 border-isabelline border-l-2"
                 >
                     <div
-                        onClick={() => setImageToOpen({ src: bio2, alt: 'Miguel Bruñó' })}
+                        onClick={() => setImageToOpen({ src: bio2, alt: 'Miguel Bruñó, manos sobre el piano' })}
                         className="about-p h-full basis-3/5 cursor-pointer px-4 md:px-16 py-8"
                     >
-                        <img className="w-full object-cover" src={bio2} alt="Miguel Bruñó" />
+                        <img
+                            className="w-full h-full object-cover"
+                            src={bio2}
+                            alt="Miguel Bruñó, manos sobre el piano"
+                        />
                     </div>
 
                     <p className="about-p about-text basis-2/5 border-0 pt-8">

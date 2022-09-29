@@ -123,7 +123,7 @@ const SectionsList = ({ className, id, sections, splitScreen, title, ...props })
                         ))}
                     </div>
 
-                    <div className={clsx(openTab ? 'basis-3/5 h-[55vh] overflow-y-scroll' : '')}>
+                    <div className={clsx(openTab ? 'basis-3/5 h-[65vh] overflow-y-scroll' : '')}>
                         {sections
                             ?.filter((section) => section?.id === openTab)
                             ?.map(({ Component, id }) => (

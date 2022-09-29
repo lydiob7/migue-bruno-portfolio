@@ -58,11 +58,22 @@ const CambraSerenata = ({ id, openTab, ...props }) => {
                 <div
                     onClick={(ev) => {
                         ev.stopPropagation();
-                        setImageToOpen({ src: serenata, alt: 'Cor de Cambra Serenata' });
+                        setImageToOpen({
+                            src: serenata,
+                            alt: 'Cor de Cambra Serenata, Fotografía por: Cristina Bartual Murgui'
+                        });
                     }}
-                    className="w-4/5 mx-auto my-16 cursor-pointer"
+                    className="relative w-4/5 mx-auto my-16 cursor-pointer"
                 >
-                    <img className="w-full" src={serenata} alt="Cor de Cambra Serenata" />
+                    <img
+                        className="w-full"
+                        src={serenata}
+                        alt="Cor de Cambra Serenata, Fotografía por: Cristina Bartual Murgui"
+                    />
+
+                    <p className="absolute bottom-2 right-2 text-xs text-darkGreen font-medium">
+                        Fotografía por: Cristina Bartual Murgui
+                    </p>
                 </div>
             </>
         </ExpandableSection>

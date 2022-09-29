@@ -25,7 +25,7 @@ const sections = [
     {
         id: tabs.iemOnline,
         Component: IEMOnline,
-        title: 'IEM Online'
+        title: 'IEM'
     },
     {
         id: tabs.cambraSerenata,

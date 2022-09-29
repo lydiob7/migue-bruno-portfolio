@@ -182,7 +182,13 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
                     className="absolute flex items-center justify-center w-screen h-screen 
                     top-0 left-0 overflow-hidden z-10 banner-image"
                 >
-                    <img className="object-cover w-full translate-y-40" src={bannerImage} alt="Miguel Bruñó" />
+                    <img
+                        className="object-cover w-full translate-y-40"
+                        src={bannerImage}
+                        alt="Miguel Bruñó, Fotografía por: Salva Malonda"
+                    />
+
+                    <p className="absolute bottom-2 right-8 text-xs text-isabelline">Fotografía por: Salva Malonda</p>
                 </div>
 
                 <div className="flex flex-col items-center lg:ml-72 lg:mb-16 brand z-20">
@@ -222,12 +228,21 @@ const Banner = forwardRef(({ className, gsap, ...props }, ref) => {
                 </div>
 
                 <div className="flex flex-col items-center lg:ml-72 mb-16">
-                    <h1 className="text-6xl font-semibold text-isabelline text-center lowercase">
-                        miguel
-                        <br />
-                        bruñó
-                    </h1>
+                    <div className="brand2 bottom-0 left-0">
+                        <h2 className="text-4xl sm:text-5xl text-isabelline">
+                            <span className="word1 inline-block">Músico</span>
+                            <br />
+                            <span className="word2 inline-block italic font-light">Arreglista</span>
+                            <br />
+                            <span className="word3 inline-block">Improvisador</span>
+                            <br />
+                            <span className="word4 inline-block font-light">Pianista</span>
+                            <br />
+                            <span className="word5 inline-block font-semibold">Compositor</span>
+                        </h2>
+                    </div>
                 </div>
+                <p className="absolute bottom-2 right-8 text-xs text-isabelline">Fotografía por: Salva Malonda</p>
             </div>
         </div>
     );

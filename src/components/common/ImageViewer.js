@@ -44,12 +44,16 @@ const ImageViewer = ({ gsap }) => {
             className="image-viewer-wrapper fixed items-center justify-center w-screen h-screen top-0 left-0"
             onClick={() => setImageToOpen(null)}
         >
-            <div className="w-4/5 lg:h-4/5 lg:w-auto">
+            <div className="relative w-4/5 lg:h-4/5 lg:w-auto">
                 <img
                     className="w-full lg:w-auto lg:h-full object-cover"
                     src={imageToOpen?.src}
                     alt={imageToOpen?.alt}
                 />
+
+                <p className="absolute -bottom-8 right-2 text-xs text-isabelline bg-darkGreen px-2">
+                    {imageToOpen?.alt}
+                </p>
             </div>
         </div>
     );

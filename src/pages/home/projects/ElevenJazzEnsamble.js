@@ -33,25 +33,33 @@ const ElevenJazzEnsamble = ({ id, openTab, ...props }) => {
                     </a>
                 </div>
 
-                <div className="w-4/5 mx-auto my-16 flex flex-col md:flex-row items-center justify-between gap-2">
+                <div className="relative w-4/5 mx-auto my-16 flex flex-col md:flex-row items-center justify-between gap-2">
                     <img
                         onClick={(ev) => {
                             ev.stopPropagation();
-                            setImageToOpen({ src: eleven1, alt: 'Eleven Jazz Ensamble 1' });
+                            setImageToOpen({
+                                src: eleven1,
+                                alt: 'Eleven Jazz Ensamble 1, Fotografías por: Ronald Salazar'
+                            });
                         }}
                         className="w-full cursor-pointer md:w-1/2"
                         src={eleven1}
-                        alt="Eleven Jazz Ensamble 1"
+                        alt="Eleven Jazz Ensamble 1, Fotografía por: Ronald Salazar"
                     />
                     <img
                         onClick={(ev) => {
                             ev.stopPropagation();
-                            setImageToOpen({ src: eleven2, alt: 'Eleven Jazz Ensamble 2' });
+                            setImageToOpen({
+                                src: eleven2,
+                                alt: 'Eleven Jazz Ensamble 2, Fotografías por: Ronald Salazar'
+                            });
                         }}
                         className="w-full cursor-pointer md:w-1/2"
                         src={eleven2}
-                        alt="Eleven Jazz Ensamble 2"
+                        alt="Eleven Jazz Ensamble 2, Fotografía por: Ronald Salazar"
                     />
+
+                    <p className="absolute bottom-2 right-2 text-xs text-isabelline">Fotografías por: Ronald Salazar</p>
                 </div>
             </>
         </ExpandableSection>

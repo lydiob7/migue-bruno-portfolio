@@ -37,11 +37,15 @@ const Malamiga = ({ id, openTab, ...props }) => {
                 <div
                     onClick={(ev) => {
                         ev.stopPropagation();
-                        setImageToOpen({ src: malamiga, alt: 'Malamiga' });
+                        setImageToOpen({ src: malamiga, alt: 'Malamiga, Fotografía por: Cristina Bataller' });
                     }}
-                    className="w-4/5 mx-auto my-16 cursor-pointer"
+                    className="relative w-4/5 mx-auto my-16 cursor-pointer"
                 >
-                    <img className="w-full" src={malamiga} alt="Malamiga" />
+                    <img className="w-full" src={malamiga} alt="Malamiga, Fotografía por: Cristina Bataller" />
+
+                    <p className="absolute bottom-2 right-2 text-xs text-isabelline">
+                        Fotografía por: Cristina Bataller
+                    </p>
                 </div>
             </>
         </ExpandableSection>

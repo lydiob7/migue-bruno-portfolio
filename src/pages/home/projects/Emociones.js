@@ -25,11 +25,13 @@ const Emociones = ({ id, openTab, ...props }) => {
                 <div
                     onClick={(ev) => {
                         ev.stopPropagation();
-                        setImageToOpen({ src: emociones, alt: 'Emociones' });
+                        setImageToOpen({ src: emociones, alt: 'Emociones, Fotografía por: Salva Malonda' });
                     }}
-                    className="w-4/5 mx-auto my-16 cursor-pointer"
+                    className="relative w-4/5 mx-auto my-16 cursor-pointer"
                 >
-                    <img className="w-full" src={emociones} alt="Emociones" />
+                    <img className="w-full" src={emociones} alt="Emociones, Fotografía por: Salva Malonda" />
+
+                    <p className="absolute bottom-2 right-2 text-xs text-darkGreen">Fotografía por: Salva Malonda</p>
                 </div>
             </>
         </ExpandableSection>
