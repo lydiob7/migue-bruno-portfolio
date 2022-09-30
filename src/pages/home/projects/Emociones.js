@@ -9,7 +9,7 @@ const Emociones = ({ id, openTab, ...props }) => {
     return (
         <ExpandableSection {...props} id={id} title="Emociones" openTab={openTab} splitScreen>
             <>
-                <p className="py-2">
+                <p className="py-2 px-4 md:px-8">
                     Emociones es un proyecto junto a la cantante{' '}
                     <a
                         className="text-darkGreen opacity-60 underline"
@@ -27,7 +27,7 @@ const Emociones = ({ id, openTab, ...props }) => {
                         ev.stopPropagation();
                         setImageToOpen({ src: emociones, alt: 'Emociones, Fotografía por: Salva Malonda' });
                     }}
-                    className="relative w-4/5 mx-auto my-16 cursor-pointer"
+                    className="relative w-4/5 mx-auto my-4 cursor-pointer"
                 >
                     <img className="w-full" src={emociones} alt="Emociones, Fotografía por: Salva Malonda" />
 

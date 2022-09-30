@@ -26,7 +26,7 @@ const HomePage = ({ gsap, ...props }) => {
                 backgroundColor: '#F5F0EA',
                 scrollTrigger: {
                     scroller: '.main-page',
-                    trigger: '#musica',
+                    trigger: '.music-section',
                     start: 'top top+=2',
                     toggleActions: 'restart none none reverse'
                 }
@@ -41,7 +41,7 @@ const HomePage = ({ gsap, ...props }) => {
                 backgroundColor: '#14191A',
                 scrollTrigger: {
                     scroller: '.main-page',
-                    trigger: '#musica',
+                    trigger: '.music-section',
                     start: 'top top+=50',
                     toggleActions: 'restart none none reverse'
                 }
@@ -56,13 +56,29 @@ const HomePage = ({ gsap, ...props }) => {
                 color: '#14191A',
                 scrollTrigger: {
                     scroller: '.main-page',
-                    trigger: '#musica',
+                    trigger: '.music-section',
                     start: 'top top+=50',
                     toggleActions: 'restart none none reverse'
                 }
             }
         );
 
+        gsap.fromTo(
+            '.music-section-mobile',
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                duration: 1,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '.music-section-mobile',
+                    start: 'top top+=100',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
         gsap.fromTo(
             '.music-section-desktop',
             {
@@ -101,6 +117,22 @@ const HomePage = ({ gsap, ...props }) => {
             }
         );
 
+        gsap.fromTo(
+            '.projects-section-mobile',
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                duration: 0.5,
+                scrollTrigger: {
+                    scroller: '.main-page',
+                    trigger: '.projects-section-mobile',
+                    start: 'top center-=150',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        );
         gsap.fromTo(
             '.projects-section-desktop',
             {
@@ -199,10 +231,10 @@ const HomePage = ({ gsap, ...props }) => {
         <div className={clsx('main-page w-screen h-full overflow-y-scroll', imageToOpen ? 'blur-lg' : '')} {...props}>
             <Banner gsap={gsap} />
             <About gsap={gsap} />
-            <Music className="lg:hidden" />
-            <Projects className="lg:hidden" />
-            <Music className="hidden lg:flex music-section-desktop" />
-            <Projects className="hidden lg:flex projects-section-desktop" />
+            <Music id="musica-sm" className="lg:hidden music-section-mobile" />
+            <Projects id="proyectos-sm" className="lg:hidden projects-section-mobile" />
+            <Music id="musica" className="hidden lg:flex music-section-desktop" />
+            <Projects id="proyectos" className="hidden lg:flex projects-section-desktop" />
             <Contact gsap={gsap} />
         </div>
     );

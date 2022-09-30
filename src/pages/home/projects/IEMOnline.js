@@ -5,20 +5,20 @@ const IEMOnline = ({ id, openTab, ...props }) => {
     return (
         <ExpandableSection {...props} id={id} title="IEM" openTab={openTab} splitScreen>
             <>
-                <p className="py-2">
+                <p className="py-2 px-4 md:px-8">
                     El Instituto de Educación Musical (IEM) es una asociación de profesores creada y dirigida por Emilio
                     Molina, a la cual pertenezco, que se centra en promover y potenciar un sistema pedagógico para el
                     aprendizaje y la enseñanza de la música basado en el desarrollo integral de la creatividad y de la
                     imaginación, y en la improvisación entendida como control del lenguaje musical.
                 </p>
-                <p className="py-2">
+                <p className="py-2 px-4 md:px-8">
                     Dentro de las actividades que realiza el Método IEM, se encuentran los cursos de verano Improvisa
                     Palencia o los cursos formación de profesorado Online. Formo parte del grupo de profesores que
                     imparte estos cursos. Te invito a que investigues en la web en qué consisten estos cursos, o a que
                     veas los siguientes vídeos de presentación.
                 </p>
                 <a
-                    className="flex items-center mt-8"
+                    className="flex items-center mt-8 px-4 md:px-8"
                     href="https://www.metodoiem.com/"
                     target="_blank"
                     rel="noreferrer"

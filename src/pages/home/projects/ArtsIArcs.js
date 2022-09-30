@@ -5,13 +5,18 @@ const ArtsIArcs = ({ id, openTab, ...props }) => {
     return (
         <ExpandableSection {...props} id={id} title="Arts i Arcs" openTab={openTab} splitScreen>
             <>
-                <p className="py-2">
+                <p className="py-2 px-4 md:px-8">
                     Arts i Arcs es una empresa con la que suelo colaborar. Ofrecen música para bodas, tanto para bodas
                     civiles, religiosas o cócteles. Generalmente ofertan música para instrumentos de cuerda, voz y
                     piano.
                 </p>
 
-                <a className="flex items-center my-8" href="https://artiarcs.com/" target="_blank" rel="noreferrer">
+                <a
+                    className="flex items-center my-8 px-4 md:px-8"
+                    href="https://artiarcs.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     Visita la web{' '}
                     <svg
                         className="ml-2"

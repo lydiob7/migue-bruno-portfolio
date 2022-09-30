@@ -16,12 +16,12 @@ const CambraSerenata = ({ id, openTab, ...props }) => {
             splitScreen
         >
             <>
-                <p className="py-2">
+                <p className="py-2 px-4 md:px-8">
                     Serenata somos una agrupación coral joven, formada en el año 2017. Hacemos conciertos regularmente,
                     con un repertorio variado que va desde música religiosa a arreglos de pop/rock actuales.{' '}
                 </p>
 
-                <div className="flex items-center my-8">
+                <div className="flex items-center my-8 px-4 md:px-8">
                     Visita las redes sociales{' '}
                     <a
                         onClick={(ev) => ev.stopPropagation()}
@@ -63,7 +63,7 @@ const CambraSerenata = ({ id, openTab, ...props }) => {
                             alt: 'Cor de Cambra Serenata, Fotografía por: Cristina Bartual Murgui'
                         });
                     }}
-                    className="relative w-4/5 mx-auto my-16 cursor-pointer"
+                    className="relative w-4/5 mx-auto my-4 cursor-pointer"
                 >
                     <img
                         className="w-full"

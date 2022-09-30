@@ -39,14 +39,14 @@ const ExpandableSection = ({
                 openTab === id
                     ? !splitScreen
                         ? 'flex-1 flex items-center justify-center overflow-hidden border-b-2 border-darkGreen'
-                        : 'flex-1 pb-32'
+                        : 'flex-1 pb-4 lg:pb-32'
                     : ''
             )}
         >
             <div
                 className={clsx(
                     openTab === id && !splitScreen
-                        ? 'flex-1 w-full lg:rotate-90 origin-center lg:h-screen lg:pt-20 lg:shrink-0 lg:overflow-y-scroll'
+                        ? 'flex-1 w-full lg:rotate-90 origin-center lg:h-screen lg:pt-20 lg:shrink-0'
                         : ''
                 )}
             >
@@ -102,7 +102,7 @@ const ExpandableSection = ({
                 >
                     {children}
 
-                    <div className="mt-16">
+                    <div className="px-4 pb-8 lg:px-4 lg:pb-0">
                         {openTab === id && (
                             <>
                                 {internalTab === 'videos' && (

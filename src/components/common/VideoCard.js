@@ -3,9 +3,9 @@ import clsx from 'clsx';
 
 const VideoCard = ({ className, description, instagramLink, title, youtubeLink, ...props }) => {
     return (
-        <div className={clsx('w-full mx-auto shrink-0 animate-fade-in delay-500', className)} {...props}>
+        <div className={clsx('w-72 lg:w-full mx-auto shrink-0 animate-fade-in delay-500', className)} {...props}>
             <h4 className="w-full font-semibold text-2xl mt-8 truncate">{title}</h4>
-            <div className="w-full h-[200px] mx-auto my-4 bg-darkGreen">
+            <div className="w-72 lg:w-full h-[200px] mx-auto my-4 bg-darkGreen">
                 <iframe
                     className="w-full h-full"
                     src={`https://www.youtube-nocookie.com/embed/${youtubeLink?.split('.be/')?.[1]}`}

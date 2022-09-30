@@ -32,7 +32,7 @@ const SectionsList = ({ className, id, sections, splitScreen, title, ...props })
             id={id}
             className={clsx(
                 'relative min-h-screen lg:min-h-auto lg:h-screen w-screen text-darkGreen lg:overflow-y-hidden',
-                openTab ? 'pt-20 lg:pt-0' : '',
+                openTab ? 'pt-20 lg:pt-0 min-h-0 lg:min-h-screen' : '',
                 splitScreen && openTab ? 'lg:px-16 lg:pb-24' : '',
                 !splitScreen || !openTab ? 'lg:h-screen lg:w-screen lg:flex lg:items-center lg:justify-center' : '',
                 className
@@ -46,7 +46,7 @@ const SectionsList = ({ className, id, sections, splitScreen, title, ...props })
                         ? 'lg:justify-start lg:min-h-[100vw] lg:w-[100vh] lg:h-[100vw] origin-center lg:-rotate-90'
                         : '',
                     splitScreen ? 'lg:h-[100vh]' : '',
-                    openTab ? 'lg:justify-between' : ''
+                    openTab ? 'lg:justify-between min-h-0 lg:min-h-screen' : ''
                 )}
             >
                 <h2
@@ -66,7 +66,7 @@ const SectionsList = ({ className, id, sections, splitScreen, title, ...props })
 
                 <div
                     onClick={() => handleToggleTab(null, false)}
-                    className={openTab ? 'block cursor-pointer self-start ml-8 mb-8 lg:hidden' : 'hidden'}
+                    className={openTab ? 'block cursor-pointer self-start ml-2 mb-8 lg:hidden' : 'hidden'}
                 >
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

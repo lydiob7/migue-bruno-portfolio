@@ -34,8 +34,14 @@ const sections = [
     }
 ];
 
-const MusicSection = ({ className, ...props }) => (
-    <SectionsList {...props} id="musica" sections={sections} title="Música" className={clsx('z-40', className)} />
+const MusicSection = ({ className, id, ...props }) => (
+    <SectionsList
+        {...props}
+        id={id}
+        sections={sections}
+        title="Música"
+        className={clsx('music-section z-40', className)}
+    />
 );
 
 export default MusicSection;

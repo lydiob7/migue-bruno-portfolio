@@ -9,12 +9,12 @@ const Malamiga = ({ id, openTab, ...props }) => {
     return (
         <ExpandableSection {...props} id={id} title="Malamiga" openTab={openTab} splitScreen>
             <>
-                <p className="py-2">
+                <p className="py-2 px-4 md:px-8">
                     Malamiga es una obra teatral escrita y dirigida por Cecilia Taboada Palafox, en la cual formo parte
                     del equipo musical. Una reflexión actual sobre lo que es y lo que significa ser amigas.
                 </p>
 
-                <div className="flex items-center my-8">
+                <div className="flex items-center my-8 px-4 md:px-8">
                     Visita las redes sociales{' '}
                     <a
                         onClick={(ev) => ev.stopPropagation()}
@@ -39,7 +39,7 @@ const Malamiga = ({ id, openTab, ...props }) => {
                         ev.stopPropagation();
                         setImageToOpen({ src: malamiga, alt: 'Malamiga, Fotografía por: Cristina Bataller' });
                     }}
-                    className="relative w-4/5 mx-auto my-16 cursor-pointer"
+                    className="relative w-4/5 mx-auto my-4 cursor-pointer"
                 >
                     <img className="w-full" src={malamiga} alt="Malamiga, Fotografía por: Cristina Bataller" />
 

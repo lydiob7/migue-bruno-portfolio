@@ -1,6 +1,11 @@
 import React, { forwardRef, useEffect } from 'react';
 import clsx from 'clsx';
 
+import facebook from 'assets/icons/facebook.svg';
+import instagram from 'assets/icons/instagram.svg';
+import soundcloud from 'assets/icons/soundcloud.svg';
+import youtube from 'assets/icons/youtube.svg';
+
 const Contact = forwardRef(({ gsap, ...props }, ref) => {
     useEffect(() => {
         gsap.fromTo(
@@ -58,12 +63,9 @@ const Contact = forwardRef(({ gsap, ...props }, ref) => {
 
     return (
         <div {...props} ref={ref} id="contacto" className={clsx('relative h-screen text-isabelline', props.className)}>
-            <h2 className="contact-p absolute left-0 top-20 text-6xl md:text-[8rem] font-bold mb-8 md:mb-24">
-                Contacto
-            </h2>
-
-            <div className="w-full h-full grid content-center pt-24 text-xl">
-                <div className="relative flex flex-col justify-center gap-4 w-4/5 lg:w-3/5 mx-auto md:text-2xl lg:text-3xl">
+            <div className="w-full h-full grid content-center text-xl px-8 lg:px-24">
+                <h2 className="contact-p text-6xl md:text-[8rem] font-bold mb-4 md:mb-16">Contacto</h2>
+                <div className="relative flex flex-col justify-center gap-4 md:w-4/5 text-base md:text-2xl lg:text-3xl">
                     <p className="contact-p md:hidden">
                         Contacta conmigo si estás interesado en alguno de los trabajos que realizo:
                     </p>
@@ -75,18 +77,51 @@ const Contact = forwardRef(({ gsap, ...props }, ref) => {
                         arreglos, composiciones, transcripciones, pianista acompañante.
                     </p>
                     <p className="contact-p">También puedes contactarme para cualquier consulta o comentario.</p>
-                    <a
-                        className="btn mt-4 md:mt-8 mx-auto"
-                        href="mailto:miguelbrusan@gmail.com"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        Enviar mensaje
+                </div>
+
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 md:w-4/5 mt-4 md:mt-16 md:text-2xl lg:text-3xl">
+                    <a className="text-ciel" href="mailto:miguelbrusan@gmail.com" target="_blank" rel="noreferrer">
+                        miguelbrusan@gmail.com
                     </a>
+
+                    <div className="flex items-center justify-center gap-8">
+                        <a
+                            className="text-ciel"
+                            href="https://www.facebook.com/miguelbrusan/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img src={facebook} alt="" />
+                        </a>
+                        <a
+                            className="text-ciel"
+                            href="https://www.instagram.com/miguelbrusan/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img src={instagram} alt="" />
+                        </a>
+                        <a
+                            className="text-ciel"
+                            href="https://soundcloud.com/user-890595658"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img src={soundcloud} alt="" />
+                        </a>
+                        <a
+                            className="text-ciel"
+                            href="https://www.youtube.com/user/miguelbrusan"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img src={youtube} alt="" />
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <p className="absolute bottom-0 left-0 right-0 z-20 text-center text-xs md:text-sm mb-12">
+            <p className="absolute bottom-0 left-0 right-0 z-20 text-center text-xs md:text-sm mb-12 px-16 md:px-0">
                 Esta pagina fue creada por{' '}
                 <a href="https://gabrielapolancoferreyra.com/" target="_blank" rel="noreferrer">
                     Gabi Polanco

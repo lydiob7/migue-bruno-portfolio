@@ -1,6 +1,7 @@
 ### v0.7.0
 
 -   Feature: Add photo credits.
+-   Feature: Fix scroll.
 
 ### v0.6.0
 

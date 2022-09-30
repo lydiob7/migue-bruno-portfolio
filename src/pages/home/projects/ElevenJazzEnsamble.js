@@ -10,12 +10,12 @@ const ElevenJazzEnsamble = ({ id, openTab, ...props }) => {
     return (
         <ExpandableSection {...props} id={id} title="Eleven Jazz Ensamble" openTab={openTab} splitScreen>
             <>
-                <p className="py-2">
+                <p className="py-2 px-4 md:px-8">
                     Eleven Jazz Ensemble es una formación jazzística cuyo director y arreglista es Diego Barberá, en la
                     cual toco el piano.
                 </p>
 
-                <div className="flex items-center my-8">
+                <div className="flex items-center my-8 px-4 md:px-8">
                     Visita las redes sociales{' '}
                     <a
                         onClick={(ev) => ev.stopPropagation()}
@@ -33,7 +33,7 @@ const ElevenJazzEnsamble = ({ id, openTab, ...props }) => {
                     </a>
                 </div>
 
-                <div className="relative w-4/5 mx-auto my-16 flex flex-col md:flex-row items-center justify-between gap-2">
+                <div className="relative w-4/5 mx-auto my-4 flex flex-col md:flex-row items-center justify-between gap-2">
                     <img
                         onClick={(ev) => {
                             ev.stopPropagation();

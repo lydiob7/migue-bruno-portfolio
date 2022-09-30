@@ -59,11 +59,11 @@ const sections = [
     }
 ];
 
-const Projects = ({ className, ...props }) => (
+const Projects = ({ className, id, ...props }) => (
     <SectionsList
         {...props}
-        className={clsx('z-30', className)}
-        id="proyectos"
+        className={clsx('projects-section z-30', className)}
+        id={id}
         sections={sections}
         splitScreen
         title="Proyectos"

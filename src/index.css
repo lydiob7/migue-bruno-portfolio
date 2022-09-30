@@ -59,7 +59,7 @@
         @apply text-3xl lg:text-4xl lg:py-4 justify-between;
     }
     .music-item-title__open {
-        @apply text-4xl justify-center text-center border-none pt-2;
+        @apply text-4xl justify-start lg:text-center border-none py-8 lg:py-2;
     }
     .project-item {
         @apply music-item music-item__open music-item-title__closed;

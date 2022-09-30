@@ -13,10 +13,16 @@ const Menu = ({ onClose, ...props }) => (
                     <HashLink onClick={onClose} to={parsePath('/#bio')}>
                         <li className="app-menu-item my-8">Bio</li>
                     </HashLink>
-                    <HashLink onClick={onClose} to={parsePath('/#musica')}>
+                    <HashLink className="lg:hidden" onClick={onClose} to={parsePath('/#musica-sm')}>
                         <li className="app-menu-item my-8">Música</li>
                     </HashLink>
-                    <HashLink onClick={onClose} to={parsePath('/#proyectos')}>
+                    <HashLink className="lg:hidden" onClick={onClose} to={parsePath('/#proyectos-sm')}>
+                        <li className="app-menu-item my-8">Proyectos</li>
+                    </HashLink>
+                    <HashLink className="hidden lg:block" onClick={onClose} to={parsePath('/#musica')}>
+                        <li className="app-menu-item my-8">Música</li>
+                    </HashLink>
+                    <HashLink className="hidden lg:block" onClick={onClose} to={parsePath('/#proyectos')}>
                         <li className="app-menu-item my-8">Proyectos</li>
                     </HashLink>
                     <HashLink onClick={onClose} to={parsePath('/#contacto')}>

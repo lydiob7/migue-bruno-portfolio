@@ -11,6 +11,9 @@ module.exports = {
                 darkGreen: '#14191A',
                 isabelline: '#F5F0EA',
                 white: '#FFFFFF'
+            },
+            backgroundColor: {
+                transparentBlack: 'rgba(0,0,0,.1)'
             }
         },
         fontFamily: {

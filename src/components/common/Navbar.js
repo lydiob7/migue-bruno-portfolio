@@ -57,7 +57,7 @@ const Navbar = ({ gsap }) => {
         <>
             <header
                 className={clsx(
-                    'fixed h-16 w-screen px-4 py-2 flex items-center justify-between',
+                    'fixed h-16 w-screen px-4 py-2 flex items-center justify-between bg-transparentBlack lg:bg-transparent',
                     imageToOpen ? 'blur-lg' : ''
                 )}
                 style={{ zIndex: 51 }}
