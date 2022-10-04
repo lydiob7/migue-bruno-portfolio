@@ -1,3 +1,7 @@
+### v1.0.0
+
+-   Feature: Remove contact section pinning.
+
 ### v0.7.0
 
 -   Feature: Add photo credits.

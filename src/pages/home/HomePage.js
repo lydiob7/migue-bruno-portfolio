@@ -200,26 +200,6 @@ const HomePage = ({ gsap, ...props }) => {
                     trigger: '#contacto',
                     start: 'top top+=2',
                     end: 'bottom top+=100',
-                    toggleActions: 'restart none none reverse',
-                    pin: true,
-                    pinSpacing: false
-                }
-            }
-        );
-        gsap.fromTo(
-            '#contacto',
-            {
-                opacity: 1,
-                yPercent: 0
-            },
-            {
-                opacity: 0,
-                yPercent: -100,
-                duration: 0.01,
-                scrollTrigger: {
-                    scroller: '.main-page',
-                    trigger: '#contacto',
-                    start: '+=50',
                     toggleActions: 'restart none none reverse'
                 }
             }

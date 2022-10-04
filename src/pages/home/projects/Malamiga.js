@@ -18,7 +18,7 @@ const Malamiga = ({ id, openTab, ...props }) => {
                     Visita las redes sociales{' '}
                     <a
                         onClick={(ev) => ev.stopPropagation()}
-                        href="https://www.instagram.com/lallorica"
+                        href="https://www.instagram.com/lallorica_/"
                         target="_blank"
                         rel="noreferrer"
                         className="ml-4"

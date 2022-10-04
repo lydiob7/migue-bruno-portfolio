@@ -85,8 +85,8 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
                         <p className="about-p about-text">
                             Trabajo de pianista acompañante habitual de distintos coros de la provincia de Valencia, y
                             en los últimos años fui profesor de piano, lenguaje musical e improvisación en Voluta Escola
-                            de Música (Alboraya). Compongo, hago arreglos, transcripciones, backing tracks… en esta web
-                            podréis ver y escuchar algunos de mis trabajos.
+                            de Música (Alboraya). Compongo, hago arreglos y transcripciones. En esta web podréis ver y
+                            escuchar algunos de mis trabajos.
                         </p>
                     </div>
 
@@ -124,12 +124,9 @@ const About = forwardRef(({ className, gsap, ...props }, ref) => {
                     </div>
 
                     <p className="about-p about-text basis-2/5 border-0 pt-8">
-                        Estudié el grado de interpretación del piano en{' '}
-                        <a className="underline" href="https://www.esmuc.cat/" target="_blank" rel="noreferrer">
-                            ESMUC
-                        </a>
-                        , y complementé mi formación con diversos cursos de improvisación, jazz, producción de música
-                        electrónica y pedagogía. Entre estos cursos destaca la formación de profesorado de{' '}
+                        Estudié el grado de interpretación del piano en ESMUC, y complementé mi formación con diversos
+                        cursos de improvisación, jazz, producción de música electrónica y pedagogía. Entre estos cursos
+                        destaca la formación de profesorado de{' '}
                         <a className="underline" href="https://www.metodoiem.com/" target="_blank" rel="noreferrer">
                             Método IEM
                         </a>
